@@ -23,7 +23,9 @@ export function _ensure__store__cache(__store, query) {
 				})
 		const datum = data[id]
 		if (datum == null && datum !== false) {
-			if (!a1__promise[id]) a1__promise[id] = query.call(store, ctx__query, id)
+			if (!a1__promise[id]) {
+				a1__promise[id] = query.call(store, ctx__query, id)
+			}
 			try {
 				data[id] = await a1__promise[id]
 			} catch (e) {
