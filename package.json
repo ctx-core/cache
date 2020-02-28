@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "4.1.38",
+	"version": "4.1.39",
 	"description": "ctx-core cache",
 	"main": "store.js",
 	"module": "store.js",
@@ -29,9 +29,9 @@
 		"access": "public"
 	},
 	"devDependencies": {
-		"@ctx-core/error": "^5.1.67",
+		"@ctx-core/error": "^5.1.68",
 		"@ctx-core/logger": "^3.1.12",
-		"@ctx-core/object": "^8.0.2",
+		"@ctx-core/object": "^8.0.3",
 		"svelte": "^3.19.1",
 		"typescript": "^3.8.3"
 	},
