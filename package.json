@@ -33,7 +33,7 @@
 		"@ctx-core/logger": "^3.1.12",
 		"@ctx-core/object": "^8.0.2",
 		"svelte": "^3.19.1",
-		"typescript": "^3.8.2"
+		"typescript": "^3.8.3"
 	},
 	"gitHead": "ecded533c5d9946e2d9dafa39dbc95ce3e38ad93"
 }
