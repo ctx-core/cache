@@ -2,6 +2,7 @@
 	"name": "@ctx-core/cache",
 	"version": "4.1.52",
 	"description": "ctx-core cache",
+	"type": "module",
 	"main": "store.js",
 	"module": "store.js",
 	"types": "store.ts",
