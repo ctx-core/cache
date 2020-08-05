@@ -32,7 +32,7 @@
 		"@ctx-core/error": "^5.1.99",
 		"@ctx-core/logger": "^3.1.21",
 		"@ctx-core/object": "^9.0.10",
-		"svelte": "^3.24.0",
+		"svelte": "^3.24.1",
 		"typescript": "^3.9.7"
 	},
 	"gitHead": "d84ce0c09a1515da8562f1f3ed76532d89319fbf"
