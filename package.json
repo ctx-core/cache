@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "4.1.83",
+	"version": "4.1.84",
 	"description": "ctx-core cache",
 	"main": "./index.js",
 	"module": "./index.js",
@@ -29,7 +29,7 @@
 		"access": "public"
 	},
 	"devDependencies": {
-		"@ctx-core/error": "^5.1.102",
+		"@ctx-core/error": "^5.1.103",
 		"@ctx-core/object": "^9.0.13",
 		"svelte": "^3.24.1",
 		"typescript": "^3.9.7"
