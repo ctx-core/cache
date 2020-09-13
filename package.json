@@ -2,6 +2,20 @@
 	"name": "@ctx-core/cache",
 	"version": "4.1.92",
 	"description": "ctx-core cache",
+	"keywords": [
+		"ctx-core",
+		"cache"
+	],
+	"homepage": "https://github.com/ctx-core/cache#readme",
+	"bugs": {
+		"url": "https://github.com/ctx-core/cache/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ctx-core/cache.git"
+	},
+	"license": "Apache-2.0",
+	"author": "Brian Takita",
 	"main": "./index.js",
 	"module": "./index.js",
 	"types": "./index.ts",
@@ -9,31 +23,17 @@
 		"build": "npm run clean && npm run compile",
 		"clean": "rm -f tsconfig.tsbuildinfo",
 		"compile": "tsc -b",
-		"prepublishOnly": "npm run compile",
-		"exec": "$@"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/ctx-core/cache.git"
-	},
-	"keywords": [
-		"ctx-core",
-		"cache"
-	],
-	"author": "Brian Takita",
-	"license": "Apache-2.0",
-	"bugs": {
-		"url": "https://github.com/ctx-core/cache/issues"
-	},
-	"homepage": "https://github.com/ctx-core/cache#readme",
-	"publishConfig": {
-		"access": "public"
+		"exec": "$@",
+		"prepublishOnly": "npm run compile"
 	},
 	"devDependencies": {
-		"@ctx-core/error": "^5.1.109",
-		"@ctx-core/object": "^10.0.4",
+		"@ctx-core/error": "workspace:*",
+		"@ctx-core/object": "workspace:*",
 		"svelte": "^3.25.0",
 		"typescript": "^4.0.2"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"gitHead": "373c06e2e97b1dd02dca592cced1fc04c4da549c"
 }
