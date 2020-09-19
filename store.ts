@@ -1,32 +1,26 @@
 import { get } from 'svelte/store'
-import { clone } from '@ctx-core/object'
-import { throw__invalid_argument } from '@ctx-core/error'
+import { throw_invalid_argument, throw_invalid_argument_ctx_type } from '@ctx-core/error'
 export function _reload__store__cache(store) {
 	return function reload__store__cache() {
-		store.set({ data: {}, a1__promise: {} })
+		store.set({ data: {}, promise_a1: {} })
 	}
 }
 export function _ensure__store__cache(__store, query) {
-	return async function ensure__store__cache(ctx__query, id) {
+	return async function ensure__store__cache(query_ctx, id) {
 		const store = get(__store)
 		const {
 			data,
-			a1__promise
+			promise_a1
 		} = store
 		if (id == null)
-			throw__invalid_argument(
-				clone(store),
-				{
-					key: 'id',
-					ctx__query,
-				})
+			throw_invalid_argument({ key: 'id', } as throw_invalid_argument_ctx_type)
 		const datum = data[id]
 		if (datum == null && datum !== false) {
-			if (!a1__promise[id]) {
-				a1__promise[id] = query.call(store, ctx__query, id)
+			if (!promise_a1[id]) {
+				promise_a1[id] = query.call(store, query_ctx, id)
 			}
 			try {
-				data[id] = await a1__promise[id]
+				data[id] = await promise_a1[id]
 			} catch (e) {
 				console.error(e)
 				data[id] = false
