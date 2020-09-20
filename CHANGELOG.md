@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 5.0.1
+
+### Patch Changes
+
+- fix: install issues: using explicit workspace: versioning
+
 ## 5.0.0
 
 ### Major Changes
