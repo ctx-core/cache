@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 5.0.4
+
+### Patch Changes
+
+- â†‘ dependencies
+
 ## 5.0.3
 
 ### Patch Changes
