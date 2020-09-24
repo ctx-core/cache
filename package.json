@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "5.0.4",
+	"version": "5.0.5",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -29,7 +29,7 @@
 	"devDependencies": {
 		"@ctx-core/error": "workspace:^7.0.11",
 		"@ctx-core/object": "workspace:^12.0.11",
-		"svelte": "3.26.0",
+		"svelte": "3.27.0",
 		"typescript": "^4.0.3"
 	},
 	"publishConfig": {
