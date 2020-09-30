@@ -1,5 +1,14 @@
 # @ctx-core/cache
 
+## 5.0.8
+
+### Patch Changes
+
+- fix: tsc build issues
+- Updated dependencies [undefined]
+- Updated dependencies [undefined]
+  - @ctx-core/store@23.0.3
+
 ## 5.0.7
 
 ### Patch Changes

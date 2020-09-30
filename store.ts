@@ -1,23 +1,19 @@
-import { get } from 'svelte/store'
+import { get } from '@ctx-core/store'
 import { throw_invalid_argument, throw_invalid_argument_ctx_type } from '@ctx-core/error'
-export function _reload__store__cache(store) {
-	return function reload__store__cache() {
-		store.set({ data: {}, promise_a1: {} })
-	}
-}
-export function _ensure__store__cache(__store, query) {
-	return async function ensure__store__cache(query_ctx, id) {
-		const store = get(__store)
+import type { $cache_store_type, cache_store_type } from './cache_store_type'
+export function _ensure_store_cache<I extends object>(store: cache_store_type<I>, query) {
+	return async function ensure_store_cache(query_ctx, id) {
+		const $store = get(store) as $cache_store_type<I>
 		const {
 			data,
 			promise_a1
-		} = store
+		} = $store
 		if (id == null)
 			throw_invalid_argument({ key: 'id', } as throw_invalid_argument_ctx_type)
 		const datum = data[id]
 		if (datum == null && datum !== false) {
 			if (!promise_a1[id]) {
-				promise_a1[id] = query.call(store, query_ctx, id)
+				promise_a1[id] = query.call($store, query_ctx, id)
 			}
 			try {
 				data[id] = await promise_a1[id]
@@ -29,3 +25,4 @@ export function _ensure__store__cache(__store, query) {
 		return data[id]
 	}
 }
+export const _ensure__store__cache = _ensure_store_cache
