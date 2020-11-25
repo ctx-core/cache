@@ -1,5 +1,18 @@
 # @ctx-core/cache
 
+## 5.1.0
+
+### Minor Changes
+
+- interface instead of type
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @ctx-core/error@7.1.0
+  - @ctx-core/object@13.1.0
+  - @ctx-core/store@23.1.0
+
 ## 5.0.21
 
 ### Patch Changes
