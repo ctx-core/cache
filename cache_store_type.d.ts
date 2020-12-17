@@ -3,4 +3,5 @@ export interface $cache_store_type<I extends object> {
     data: I;
     promise_a1: Promise<I>[];
 }
-export declare type cache_store_type<I extends object> = Writable<$cache_store_type<I>>;
+export interface cache_store_type<I extends object> extends Writable<$cache_store_type<I>> {
+}
