@@ -1,5 +1,17 @@
 # @ctx-core/cache
 
+## 5.1.9
+
+### Patch Changes
+
+- interface instead of type: cache_store_type
+- Updated dependencies [undefined]
+- Updated dependencies [undefined]
+- Updated dependencies [undefined]
+  - @ctx-core/object@15.0.4
+  - @ctx-core/error@7.1.6
+  - @ctx-core/store@23.1.8
+
 ## 5.1.8
 
 ### Patch Changes
