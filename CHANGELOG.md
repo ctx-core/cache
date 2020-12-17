@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 5.1.8
+
+### Patch Changes
+
+- fix: index.ts: ∋ ./\_reload_store_cache,./cache_store_type
+
 ## 5.1.7
 
 ### Patch Changes
