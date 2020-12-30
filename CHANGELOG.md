@@ -1,5 +1,13 @@
 # @ctx-core/cache
 
+## 5.1.20
+
+### Patch Changes
+
+- @ctx-core/object@15.0.14
+- @ctx-core/store@23.1.19
+- @ctx-core/error@7.1.16
+
 ## 5.1.19
 
 ### Patch Changes
