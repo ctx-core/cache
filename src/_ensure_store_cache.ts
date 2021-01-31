@@ -3,7 +3,7 @@ import { throw_invalid_argument, throw_invalid_argument_ctx_type } from '@ctx-co
 import type { $cache_store_type, cache_store_type } from './cache_store_type'
 export function _ensure_store_cache<I extends object>(store: cache_store_type<I>, query) {
 	return async function ensure_store_cache(query_ctx, id) {
-		const $store = get(store) as $cache_store_type<I>
+		const $store:$cache_store_type<I> = get(store)
 		const {
 			data,
 			promise_a1
@@ -25,4 +25,6 @@ export function _ensure_store_cache<I extends object>(store: cache_store_type<I>
 		return data[id]
 	}
 }
-export const _ensure__store__cache = _ensure_store_cache
+export {
+	_ensure_store_cache as _ensure__store__cache
+}

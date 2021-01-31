@@ -1,5 +1,12 @@
 # @ctx-core/cache
 
+## 5.2.0
+
+### Minor Changes
+
+- src directory
+- export aliases
+
 ## 5.1.38
 
 ### Patch Changes

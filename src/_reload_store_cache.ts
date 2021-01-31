@@ -4,4 +4,6 @@ export function _reload_store_cache<I extends object>(store: cache_store_type<I>
 		store.set({ data: {} as I, promise_a1: [] as Promise<I>[] } as $cache_store_type<I>)
 	}
 }
-export const _reload__store__cache = _reload_store_cache
+export {
+	_reload_store_cache as _reload__store__cache
+}
