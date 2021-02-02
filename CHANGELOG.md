@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 5.2.7
+
+### Patch Changes
+
+- @ctx-core/store@24.0.4
+
 ## 5.2.6
 
 ### Patch Changes
