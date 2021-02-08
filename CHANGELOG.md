@@ -1,11 +1,19 @@
 # @ctx-core/cache
 
+## 6.0.2
+
+### Patch Changes
+
+- @ctx-core/object@17.0.3
+- @ctx-core/store@24.0.9
+- @ctx-core/error@8.0.3
+
 ## 6.0.1
 
 ### Patch Changes
 
 - \_reload_store_cache,\_ensure_store_cache: S generic which is a Writable<cache_store_type<I>>
-- $cache_store_type->cache_type
+- \$cache_store_type->cache_type
 
 ## 6.0.0
 
