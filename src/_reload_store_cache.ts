@@ -1,9 +1,13 @@
-import type { $cache_store_type, cache_store_type } from './cache_store_type'
-export function _reload_store_cache<I extends unknown = unknown>(
-	store:cache_store_type<I>, _data: () => I
+import type { Writable } from '@ctx-core/store'
+import type { cache_type } from './cache_type'
+export function _reload_store_cache</*@formatter:off*/
+	I extends unknown = unknown,
+	S extends Writable<cache_type<I>> = Writable<cache_type<I>>
+>/*@formatter:on*/(
+	store:S, _data:()=>I
 ) {
 	return function reload_store_cache() {
-		store.set({ data: _data(), promise_a1: [] as Promise<I>[] } as $cache_store_type<I>)
+		store.set({ data: _data(), promise_a1: [] as Promise<I>[] } as cache_type<I>)
 	}
 }
 export {

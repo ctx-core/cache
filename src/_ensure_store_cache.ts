@@ -1,9 +1,12 @@
-import { get } from '@ctx-core/store'
+import { get, Writable } from '@ctx-core/store'
 import { throw_invalid_argument, throw_invalid_argument_ctx_type } from '@ctx-core/error'
-import type { $cache_store_type, cache_store_type } from './cache_store_type'
-export function _ensure_store_cache<I extends unknown = unknown>(store: cache_store_type<I>, query) {
+import type { cache_type } from './cache_type'
+export function _ensure_store_cache<
+	I extends unknown = unknown,
+	S extends Writable<cache_type<I>> = Writable<cache_type<I>>
+>(store:S, query) {
 	return async function ensure_store_cache(query_ctx, id) {
-		const $store:$cache_store_type<I> = get(store)
+		const $store:cache_type<I> = get(store)
 		const {
 			data,
 			promise_a1
