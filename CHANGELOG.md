@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 5.2.12
+
+### Patch Changes
+
+- fix: \_ensure_store_cache,\_reload_store_cache,\$cache_store_type: default alias type Object
+
 ## 5.2.11
 
 ### Patch Changes
