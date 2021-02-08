@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 5.2.13
+
+### Patch Changes
+
+- cache_store_type: generic defaults to Object
+
 ## 5.2.12
 
 ### Patch Changes
