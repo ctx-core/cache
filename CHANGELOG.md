@@ -1,5 +1,15 @@
 # @ctx-core/cache
 
+## 6.0.0
+
+### Major Changes
+
+- \_ensure_store_cache,\_reload_store_cache,\$cache_store_type,cache_store_type: unknown base type instead of object
+
+### Minor Changes
+
+- \_reload_store_cache: \_data argument: () => I
+
 ## 5.2.13
 
 ### Patch Changes
