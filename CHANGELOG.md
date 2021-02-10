@@ -1,5 +1,15 @@
 # @ctx-core/cache
 
+## 7.0.0
+
+### Major Changes
+
+- cache_type: interface changes
+
+### Minor Changes
+
+- \_ensure_store_cache: query_ctx_type generic
+
 ## 6.0.5
 
 ### Patch Changes
