@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 7.1.2
+
+### Patch Changes
+
+- typescript: ^4.1.4 -> ^4.1.5
+- Updated dependencies [undefined]
+  - @ctx-core/error@8.0.6
+  - @ctx-core/function@17.3.2
+  - @ctx-core/object@17.0.6
+  - @ctx-core/store@24.0.13
+
 ## 7.1.1
 
 ### Patch Changes
