@@ -3,7 +3,7 @@ import type { cache_type } from './cache_type'
 export function _reload_store_cache</*@formatter:off*/
 	I extends unknown = unknown,
 	S extends Writable<cache_type<I>> = Writable<cache_type<I>>
->/*@formatter:on*/(store:S) {
+>/*@formatter:on*/(store:S):reload_store_cache_type {
 	return function reload_store_cache() {
 		store.set({
 				data: {} as Record<string, I>,
@@ -13,6 +13,7 @@ export function _reload_store_cache</*@formatter:off*/
 		)
 	}
 }
+export type reload_store_cache_type = ()=>void
 export {
 	_reload_store_cache as _reload__store__cache
 }
