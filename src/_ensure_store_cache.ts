@@ -12,7 +12,7 @@ export function _ensure_store_cache</*@formatter:off*/
 		query_ctx:query_ctx_type,
 		id:string
 	)=>Promise<input_type>
-):ensure_store_cache_type<input_type, query_ctx_type> {
+):ensure_store_cache_type<query_ctx_type, input_type> {
 	return async function ensure_store_cache(query_ctx:query_ctx_type, id:string):Promise<input_type> {
 		const $store:cache_type<input_type> = get(store)
 		const {
@@ -38,8 +38,8 @@ export function _ensure_store_cache</*@formatter:off*/
 	}
 }
 export type ensure_store_cache_type</*@formatter:off*/
+	query_ctx_type extends unknown = any,
 	input_type extends unknown = unknown,
-	query_ctx_type extends unknown = any
 >/*@formatter:on*/ = (query_ctx:query_ctx_type, id:string)=>Promise<input_type>
 export {
 	_ensure_store_cache as _ensure__store__cache

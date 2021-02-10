@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 7.1.1
+
+### Patch Changes
+
+- ensure_store_cache_type<query_ctx_type, input_type>
+
 ## 7.1.0
 
 ### Minor Changes
