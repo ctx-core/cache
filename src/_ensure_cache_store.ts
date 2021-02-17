@@ -9,18 +9,17 @@ export function _ensure_cache_store</*@formatter:off*/
 	store:store_type,
 	query:ensure_cache_query_type<input_type, query_ctx_type>
 ):ensure_cache_store_type<query_ctx_type, input_type> {
-	return async function ensure_cache_store(query_ctx:query_ctx_type, id:string):Promise<input_type> {
+	return async function ensure_cache_store(id:string, query_ctx?:query_ctx_type):Promise<input_type> {
 		const $cache_store:$cache_store_type<input_type> = get(store)
 		const {
 			data,
 			errors,
 			promises
 		} = $cache_store
-		if (id == null)
-			throw_invalid_argument({ key: 'id', } as throw_invalid_argument_ctx_type)
+		if (!id) throw_invalid_argument({ key: 'id', value: id } as throw_invalid_argument_ctx_type)
 		if (data[id] == null && !errors[id]) {
 			if (!promises[id]) {
-				promises[id] = query.call($cache_store, query_ctx, id)
+				promises[id] = query.call($cache_store, id, query_ctx)
 			}
 			try {
 				data[id] = await promises[id]
@@ -38,13 +37,13 @@ export type ensure_cache_query_type</*@formatter:off*/
 	query_ctx_type extends unknown = any,
 >/*@formatter:on*/ = (
 	this:$cache_store_type<input_type>,
-	query_ctx:query_ctx_type,
-	id:string
+	id:string,
+	query_ctx?:query_ctx_type,
 )=>Promise<input_type>
 export type ensure_cache_store_type</*@formatter:off*/
 	query_ctx_type extends unknown = any,
 	input_type extends unknown = unknown,
->/*@formatter:on*/ = (query_ctx:query_ctx_type, id:string)=>Promise<input_type>
+>/*@formatter:on*/ = (id:string, query_ctx?:query_ctx_type)=>Promise<input_type>
 export {
 	_ensure_cache_store as _ensure_store_cache,
 	_ensure_cache_store as _ensure__store__cache,

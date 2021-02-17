@@ -1,5 +1,15 @@
 # @ctx-core/cache
 
+## 8.0.0
+
+### Major Changes
+
+- \_ensure_cache_store,ensure_cache_store: args: (id:string, query_ctx?:query_ctx_type)
+
+### Patch Changes
+
+- fix: \_ensure_cache_store: ensure_cache_store: id is falsy: throw_invalid_argument with value
+
 ## 7.3.0
 
 ### Minor Changes
