@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 7.2.0
+
+### Minor Changes
+
+- \_reload_cache_store,\_ensure_cache_store,\$cache_store_type: instead of reload_store_cache,ensure_store_cache,cache_type
+
 ## 7.1.4
 
 ### Patch Changes
