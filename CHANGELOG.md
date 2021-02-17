@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 7.3.0
+
+### Minor Changes
+
+- \_cache_writable
+
 ## 7.2.0
 
 ### Minor Changes
