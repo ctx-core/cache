@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 8.1.0
+
+### Minor Changes
+
+- feat: cache_readable.get
+
 ## 8.0.1
 
 ### Patch Changes

@@ -7,4 +7,5 @@ export declare function _cache_readable</*@formatter:off*/ input_type extends un
 export interface cache_readable_type<input_type extends unknown = unknown, query_ctx_type extends unknown = any> extends Readable<$cache_store_type<input_type>> {
     reload: reload_store_cache_type;
     ensure: ensure_cache_store_type<query_ctx_type, input_type>;
+    get: (id: string) => input_type;
 }

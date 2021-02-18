@@ -1,5 +1,5 @@
 import { assign } from '@ctx-core/object'
-import { _readable_set_ctx, Readable } from '@ctx-core/store'
+import { _readable_set_ctx, get as in_get, Readable } from '@ctx-core/store'
 import type { $cache_store_type } from './$cache_store_type'
 import type { ensure_cache_query_type } from './_ensure_cache_store'
 import { _reload_store_cache, reload_store_cache_type } from './_reload_cache_store'
@@ -18,11 +18,16 @@ export function _cache_readable</*@formatter:off*/
 	return assign(store, {
 		reload,
 		ensure,
+		get,
 	}) as store_type
 	return store as store_type
+	function get(id:string) {
+	  return in_get(store).data[id]
+	}
 }
 export interface cache_readable_type<input_type extends unknown = unknown, query_ctx_type extends unknown = any>
 	extends Readable<$cache_store_type<input_type>> {
 	reload:reload_store_cache_type
 	ensure:ensure_cache_store_type<query_ctx_type, input_type>
+	get:(id:string)=>input_type
 }
