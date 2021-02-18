@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 8.2.0
+
+### Minor Changes
+
+- fix: \_cache_readable: get: return type
+
 ## 8.1.1
 
 ### Patch Changes

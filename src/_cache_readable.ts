@@ -21,7 +21,7 @@ export function _cache_readable</*@formatter:off*/
 		get,
 	}) as store_type
 	return store as store_type
-	function get(id:string) {
+	function get(id:string):input_type {
 	  return in_get(store).data[id]
 	}
 }
