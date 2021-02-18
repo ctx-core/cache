@@ -1,5 +1,12 @@
 # @ctx-core/cache
 
+## 8.0.1
+
+### Patch Changes
+
+- \_reload_cache_store: set function argument instead of writable store
+- \_cache_readable instead of \_cache_writable
+
 ## 8.0.0
 
 ### Major Changes

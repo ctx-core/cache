@@ -1,9 +1,9 @@
-import { get, Writable } from '@ctx-core/store'
+import { get, Readable } from '@ctx-core/store'
 import { throw_invalid_argument, throw_invalid_argument_ctx_type } from '@ctx-core/error'
 import type { $cache_store_type } from './$cache_store_type'
 export function _ensure_cache_store</*@formatter:off*/
 	input_type extends unknown = unknown,
-	store_type extends Writable<$cache_store_type<input_type>> = Writable<$cache_store_type<input_type>>,
+	store_type extends Readable<$cache_store_type<input_type>> = Readable<$cache_store_type<input_type>>,
 	query_ctx_type extends unknown = any
 >/*@formatter:on*/(
 	store:store_type,
