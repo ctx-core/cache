@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 8.2.1
+
+### Patch Changes
+
+- fix: \_cache_readable: \$cache_store_type instead of store_type: get:(id:string)=>input_type
+
 ## 8.2.0
 
 ### Minor Changes

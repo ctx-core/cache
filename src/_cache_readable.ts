@@ -10,7 +10,7 @@ export function _cache_readable</*@formatter:off*/
 	store_type extends cache_readable_type<input_type, query_ctx_type> = cache_readable_type<input_type, query_ctx_type>,
 >/*@formatter:on*/(query:ensure_cache_query_type<input_type, query_ctx_type>):store_type {
 	const { store, set } = _readable_set_ctx<$cache_store_type<input_type>>(
-		{ data: {}, errors: {}, promises: {} } as $cache_store_type<input_type>
+		{ data: {}, errors: {}, promises: {}, get } as $cache_store_type<input_type>
 	)
 	const reload = _reload_store_cache<input_type>(set)
 	reload()
@@ -18,7 +18,6 @@ export function _cache_readable</*@formatter:off*/
 	return assign(store, {
 		reload,
 		ensure,
-		get,
 	}) as store_type
 	return store as store_type
 	function get(id:string):input_type {
@@ -29,5 +28,4 @@ export interface cache_readable_type<input_type extends unknown = unknown, query
 	extends Readable<$cache_store_type<input_type>> {
 	reload:reload_store_cache_type
 	ensure:ensure_cache_store_type<query_ctx_type, input_type>
-	get:(id:string)=>input_type
 }
