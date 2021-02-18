@@ -7,7 +7,8 @@ export function _ensure_cache_store</*@formatter:off*/
 	query_ctx_type extends unknown = any
 >/*@formatter:on*/(
 	store:store_type,
-	query:ensure_cache_query_type<input_type, query_ctx_type>
+	set:(val:$cache_store_type<input_type>)=>void,
+	query:ensure_cache_query_type<input_type, query_ctx_type>,
 ):ensure_cache_store_type<query_ctx_type, input_type> {
 	return async function ensure_cache_store(id:string, query_ctx?:query_ctx_type):Promise<input_type> {
 		const $cache_store:$cache_store_type<input_type> = get(store)
@@ -23,6 +24,7 @@ export function _ensure_cache_store</*@formatter:off*/
 			}
 			try {
 				data[id] = await promises[id]
+				set($cache_store)
 			} catch (e) {
 				console.error(e)
 				errors[id] = e

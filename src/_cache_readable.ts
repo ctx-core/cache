@@ -14,7 +14,7 @@ export function _cache_readable</*@formatter:off*/
 	)
 	const reload = _reload_store_cache<input_type>(set)
 	reload()
-	const ensure = _ensure_store_cache(store, query)
+	const ensure = _ensure_store_cache(store, set, query)
 	return assign(store, {
 		reload,
 		ensure,

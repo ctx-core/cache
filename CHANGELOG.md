@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 8.1.1
+
+### Patch Changes
+
+- \_ensure_cache_store: \_ensure_store_cache(store, set, query) arguments
+
 ## 8.1.0
 
 ### Minor Changes
