@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 8.3.1
+
+### Patch Changes
+
+- fix: \_cache_readable: opts defaults to {}
+
 ## 8.3.0
 
 ### Minor Changes

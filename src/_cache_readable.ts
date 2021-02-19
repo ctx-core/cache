@@ -10,7 +10,7 @@ export function _cache_readable</*@formatter:off*/
 	store_type extends cache_readable_type<input_type, query_ctx_type> = cache_readable_type<input_type, query_ctx_type>,
 >/*@formatter:on*/(
 	query:ensure_cache_query_type<input_type, query_ctx_type>,
-	opts:_ensure_cache_store_opts_type
+	opts:_ensure_cache_store_opts_type = {}
 ):store_type {
 	const { store, set } = _readable_set_ctx<$cache_store_type<input_type>>(
 		{ data: {}, errors: {}, promises: {} } as $cache_store_type<input_type>
@@ -18,8 +18,8 @@ export function _cache_readable</*@formatter:off*/
 	const reload = _reload_store_cache<input_type>(set)
 	reload()
 	const ensure = _ensure_store_cache(store, set, query, opts)
-	const data = derived(store, $store => $store.data)
-	const errors = derived(store, $store => $store.errors)
+	const data = derived(store, $store=>$store.data)
+	const errors = derived(store, $store=>$store.errors)
 	return assign(store, {
 		data,
 		errors,
