@@ -1,7 +1,7 @@
 import type { Timeout } from '@ctx-core/function';
 import { Readable, Writable } from '@ctx-core/store';
-export declare function _cache_ctx</*@formatter:off*/ $value_type extends unknown = unknown, opts_data_type extends unknown = unknown>(query: cache_ctx_query_type<$value_type, cache_ctx_ensure_opts_type<opts_data_type>>, _cache_ctx_opts?: _cache_ctx_type): cache_ctx_type<$value_type, opts_data_type>;
-export interface _cache_ctx_type {
+export declare function _cache_ctx</*@formatter:off*/ $value_type extends unknown = unknown, opts_data_type extends unknown = unknown>(query: cache_ctx_query_type<$value_type, cache_ctx_ensure_opts_type<opts_data_type>>, _cache_ctx_opts?: _cache_ctx_opts_type): cache_ctx_type<$value_type, opts_data_type>;
+export interface _cache_ctx_opts_type {
     period?: number;
     poll?: boolean;
 }

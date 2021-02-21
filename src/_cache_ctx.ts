@@ -7,14 +7,14 @@ export function _cache_ctx</*@formatter:off*/
 	opts_data_type extends unknown = unknown,
 >/*@formatter:on*/(
 	query:cache_ctx_query_type<$value_type, cache_ctx_ensure_opts_type<opts_data_type>>,
-	_cache_ctx_opts:_cache_ctx_type = {},
+	_cache_ctx_opts:_cache_ctx_opts_type = {},
 ):cache_ctx_type<$value_type, opts_data_type> {
 	const { store: cache_ctx, set } = _readable_set_ctx<$cache_ctx_type<$value_type>>({})
 	return assign(cache_ctx, {
 		ensure,
 	}) as cache_ctx_type<$value_type, opts_data_type>
 	async function ensure(
-		id:string, opts:cache_ctx_ensure_opts_type<opts_data_type>
+		id:string, opts:cache_ctx_ensure_opts_type<opts_data_type> = {}
 	):Promise<cache_value_type<$value_type>> {
 		if (!id) throw_invalid_argument({ key: 'id', value: id } as throw_invalid_argument_ctx_type)
 		const $cache_ctx:$cache_ctx_type<$value_type> = get(cache_ctx)
@@ -71,7 +71,7 @@ export function _cache_ctx</*@formatter:off*/
 		return assign(cache_frame, {}) as cache_value_type<$value_type>
 	}
 }
-export interface _cache_ctx_type {
+export interface _cache_ctx_opts_type {
 	period?:number
 	poll?:boolean
 }
