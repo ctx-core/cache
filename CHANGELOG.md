@@ -1,5 +1,19 @@
 # @ctx-core/cache
 
+## 9.0.0
+
+### Major Changes
+
+- BREAKING CHANGE: \_cache_ctx interface: \_cache_readable,\_ensure_cache_store,\_reload_cache_store no longer avaliable
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @ctx-core/function@17.3.3
+  - @ctx-core/object@17.0.8
+  - @ctx-core/store@24.0.16
+  - @ctx-core/error@8.0.8
+
 ## 8.3.1
 
 ### Patch Changes
@@ -104,7 +118,7 @@
 
 ### Minor Changes
 
-- reload_store_cache_type
+- init_store_cache_type
 - ensure_store_cache_type
 
 ## 7.0.0
