@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 9.0.3
+
+### Patch Changes
+
+- fix: cache_ctx_type.ensure: opts is optional
+
 ## 9.0.2
 
 ### Patch Changes
