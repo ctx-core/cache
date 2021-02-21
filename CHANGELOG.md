@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 9.0.4
+
+### Patch Changes
+
+- fix: cache_ctx_type.ensure: return type: Promise<cache_value_type<\$value_type>>
+
 ## 9.0.3
 
 ### Patch Changes
