@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 9.1.1
+
+### Patch Changes
+
+- fix: cache_ctx_type: be method
+
 ## 9.1.0
 
 ### Minor Changes

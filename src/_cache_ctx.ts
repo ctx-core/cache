@@ -114,8 +114,6 @@ export type $cache_ctx_type<$value_type extends unknown = unknown> =
 	Record<string, cache_ctx_value_type<$value_type>>
 export interface cache_ctx_type<$value_type extends unknown = unknown, opts_data_type extends unknown = unknown>
 	extends Readable<$cache_ctx_type<$value_type>> {
-	ensure:(
-		id:string,
-		opts?:cache_ctx_be_opts_type<opts_data_type>
-	)=>Promise<cache_ctx_value_type<$value_type>>
+	be:(id:string, opts?:cache_ctx_be_opts_type<opts_data_type>)=>cache_ctx_value_type<$value_type>
+	ensure:(id:string, opts?:cache_ctx_be_opts_type<opts_data_type>)=>Promise<cache_ctx_value_type<$value_type>>
 }
