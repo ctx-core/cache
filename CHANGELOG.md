@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 9.1.0
+
+### Minor Changes
+
+- feat: cache_ctx: be method: returns instantiated cache_ctx_value_type with load running in the background
+
 ## 9.0.4
 
 ### Patch Changes
