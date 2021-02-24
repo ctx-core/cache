@@ -1,42 +1,42 @@
 import type { Timeout } from '@ctx-core/function'
 import { assign, clone } from '@ctx-core/object'
 import { _readable_set_ctx, get, Readable, writable, Writable } from '@ctx-core/store'
-import { throw_invalid_argument, throw_invalid_argument_ctx_type } from '@ctx-core/error'
+import { throw_invalid_argument, throw_invalid_argument_ctx_T } from '@ctx-core/error'
 export function _cache_ctx</*@formatter:off*/
-	$value_type extends unknown = unknown,
-	opts_data_type extends unknown = unknown,
+	$value_T extends unknown = unknown,
+	opts_data_T extends unknown = unknown,
 >/*@formatter:on*/(
-	query:cache_ctx_query_type<$value_type, cache_ctx_be_opts_type<opts_data_type>>,
-	_cache_ctx_opts:_cache_ctx_opts_type = {},
-):cache_ctx_type<$value_type, opts_data_type> {
-	const { store: cache_ctx, set } = _readable_set_ctx<$cache_ctx_type<$value_type>>({})
+	query:cache_ctx_query_T<$value_T, cache_ctx_be_opts_T<opts_data_T>>,
+	_cache_ctx_opts:_cache_ctx_opts_T = {},
+):cache_ctx_T<$value_T, opts_data_T> {
+	const { store: cache_ctx, set } = _readable_set_ctx<$cache_ctx_T<$value_T>>({})
 	return assign(cache_ctx, {
 		be,
 		ensure,
-	}) as cache_ctx_type<$value_type, opts_data_type>
-	function be(id:string, opts:cache_ctx_be_opts_type<opts_data_type> = {}) {
+	}) as cache_ctx_T<$value_T, opts_data_T>
+	function be(id:string, opts:cache_ctx_be_opts_T<opts_data_T> = {}) {
 		const cache_ctx_value = base_be(id)
 		load(id, opts).then()
 		return cache_ctx_value
 	}
 	async function ensure(
-		id:string, opts:cache_ctx_be_opts_type<opts_data_type> = {}
-	):Promise<cache_ctx_value_type<$value_type>> {
+		id:string, opts:cache_ctx_be_opts_T<opts_data_T> = {}
+	):Promise<cache_ctx_value_T<$value_T>> {
 		const cache_ctx_value = base_be(id)
 		await load(id, opts)
 		return cache_ctx_value
 	}
 	function base_be(id:string) {
-		if (!id) throw_invalid_argument({ key: 'id', value: id } as throw_invalid_argument_ctx_type)
-		const $cache_ctx:$cache_ctx_type<$value_type> = get(cache_ctx)
+		if (!id) throw_invalid_argument({ key: 'id', value: id } as throw_invalid_argument_ctx_T)
+		const $cache_ctx:$cache_ctx_T<$value_T> = get(cache_ctx)
 		if (!$cache_ctx[id]) {
 			$cache_ctx[id] = _cache_ctx_value()
 			set($cache_ctx)
 		}
 		return $cache_ctx[id]
 	}
-	async function load(id:string, opts:cache_ctx_be_opts_type<opts_data_type> = {}) {
-		const $cache_ctx:$cache_ctx_type<$value_type> = get(cache_ctx)
+	async function load(id:string, opts:cache_ctx_be_opts_T<opts_data_T> = {}) {
+		const $cache_ctx:$cache_ctx_T<$value_T> = get(cache_ctx)
 		const now = new Date()
 		const cache_ctx_value = $cache_ctx[id]
 		const { expiration } = cache_ctx_value
@@ -80,29 +80,32 @@ export function _cache_ctx</*@formatter:off*/
 			}
 		}
 	}
-	function _cache_ctx_value():cache_ctx_value_type<$value_type> {
+	function _cache_ctx_value():cache_ctx_value_T<$value_T> {
 		const cache_ctx_value = writable(null)
-		return assign(cache_ctx_value, {}) as cache_ctx_value_type<$value_type>
+		return assign(cache_ctx_value, {}) as cache_ctx_value_T<$value_T>
 	}
 }
-export interface _cache_ctx_opts_type {
+export interface _cache_ctx_opts_T {
 	period?:number
 	poll?:boolean
 }
-export type cache_ctx_query_type</*@formatter:off*/
+export type _cache_ctx_opts_type = _cache_ctx_opts_T
+export type cache_ctx_query_T</*@formatter:off*/
 	$value_type extends unknown = unknown,
 	opts_data_type extends unknown = unknown,
 >/*@formatter:on*/ = (
 	id:string,
 	opts_data?:opts_data_type,
 )=>Promise<$value_type>
-export interface cache_ctx_be_opts_type<opts_data_type extends unknown = unknown> {
+export type cache_ctx_query_type = cache_ctx_query_T
+export interface cache_ctx_be_opts_T<opts_data_type extends unknown = unknown> {
 	data?:opts_data_type
 	period?:number
 	poll?:boolean
 	force?:boolean
 }
-export interface cache_ctx_value_type<$value_type extends unknown = unknown>
+export type cache_ctx_be_opts_type = cache_ctx_be_opts_T
+export interface cache_ctx_value_T<$value_type extends unknown = unknown>
 	extends Writable<$value_type> {
 	promise?:Promise<$value_type>
 	error?:any
@@ -110,10 +113,13 @@ export interface cache_ctx_value_type<$value_type extends unknown = unknown>
 	poll?:false|number|Timeout
 	expiration?:Date
 }
-export type $cache_ctx_type<$value_type extends unknown = unknown> =
-	Record<string, cache_ctx_value_type<$value_type>>
-export interface cache_ctx_type<$value_type extends unknown = unknown, opts_data_type extends unknown = unknown>
-	extends Readable<$cache_ctx_type<$value_type>> {
-	be:(id:string, opts?:cache_ctx_be_opts_type<opts_data_type>)=>cache_ctx_value_type<$value_type>
-	ensure:(id:string, opts?:cache_ctx_be_opts_type<opts_data_type>)=>Promise<cache_ctx_value_type<$value_type>>
+export type cache_ctx_value_type = cache_ctx_value_T
+export type $cache_ctx_T<$value_type extends unknown = unknown> =
+	Record<string, cache_ctx_value_T<$value_type>>
+export type $cache_ctx_type = $cache_ctx_T
+export interface cache_ctx_T<$value_type extends unknown = unknown, opts_data_type extends unknown = unknown>
+	extends Readable<$cache_ctx_T<$value_type>> {
+	be:(id:string, opts?:cache_ctx_be_opts_T<opts_data_type>)=>cache_ctx_value_T<$value_type>
+	ensure:(id:string, opts?:cache_ctx_be_opts_T<opts_data_type>)=>Promise<cache_ctx_value_T<$value_type>>
 }
+export type cache_ctx_type = cache_ctx_T
