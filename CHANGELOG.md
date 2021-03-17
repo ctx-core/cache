@@ -1,5 +1,12 @@
 # @ctx-core/cache
 
+## 9.2.14
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @ctx-core/store@24.1.13
+
 ## 9.2.13
 
 ### Patch Changes
