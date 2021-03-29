@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 9.2.16
+
+### Patch Changes
+
+- fix: npm publish: https://github.com/npm/cli/issues/2834
+- Updated dependencies [undefined]
+  - @ctx-core/error@8.0.20
+  - @ctx-core/function@17.4.3
+  - @ctx-core/object@17.4.2
+  - @ctx-core/store@24.1.15
+
 ## 9.2.15
 
 ### Patch Changes
