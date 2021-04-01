@@ -1,5 +1,13 @@
 # @ctx-core/cache
 
+## 9.2.18
+
+### Patch Changes
+
+- "svelte": 3.37.0
+- Updated dependencies [undefined]
+  - @ctx-core/store@24.1.17
+
 ## 9.2.17
 
 ### Patch Changes
