@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "9.2.23",
+	"version": "9.2.24",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -30,7 +30,7 @@
 		"@ctx-core/error": "workspace:^8.0.26",
 		"@ctx-core/function": "workspace:^17.4.6",
 		"@ctx-core/object": "workspace:^17.5.6",
-		"@ctx-core/store": "workspace:^24.1.22",
+		"@ctx-core/store": "workspace:^24.2.0",
 		"svelte": "3.37.0"
 	},
 	"devDependencies": {
