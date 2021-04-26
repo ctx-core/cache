@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 9.2.33
+
+### Patch Changes
+
+- update dependencies
+
 ## 9.2.32
 
 ### Patch Changes
