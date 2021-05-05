@@ -1,6 +1,6 @@
 import type { Timeout } from '@ctx-core/function'
 import { assign, clone } from '@ctx-core/object'
-import { _readable_set_ctx, get, Readable, writable, Writable } from '@ctx-core/store'
+import { _readable_set_ctx$, Readable$, writable$, Writable$ } from '@ctx-core/store'
 import { throw_invalid_argument, throw_invalid_argument_ctx_T } from '@ctx-core/error'
 export function _cache_ctx</*@formatter:off*/
 	$value_T extends unknown = unknown,
@@ -9,7 +9,7 @@ export function _cache_ctx</*@formatter:off*/
 	query:cache_ctx_query_T<$value_T, cache_ctx_be_opts_T<opts_data_T>>,
 	_cache_ctx_opts:_cache_ctx_opts_T = {},
 ):cache_ctx_T<$value_T, opts_data_T> {
-	const { store: cache_ctx, set } = _readable_set_ctx<$cache_ctx_T<$value_T>>({})
+	const { store: cache_ctx, set } = _readable_set_ctx$<$cache_ctx_T<$value_T>>({})
 	return assign(cache_ctx, {
 		be,
 		ensure,
@@ -28,7 +28,7 @@ export function _cache_ctx</*@formatter:off*/
 	}
 	function base_be(id:string) {
 		if (!id) throw_invalid_argument({ key: 'id', value: id } as throw_invalid_argument_ctx_T)
-		const $cache_ctx:$cache_ctx_T<$value_T> = get(cache_ctx)
+		const $cache_ctx:$cache_ctx_T<$value_T> = cache_ctx.$
 		if (!$cache_ctx[id]) {
 			$cache_ctx[id] = _cache_ctx_value()
 			set($cache_ctx)
@@ -36,11 +36,11 @@ export function _cache_ctx</*@formatter:off*/
 		return $cache_ctx[id]
 	}
 	async function load(id:string, opts:cache_ctx_be_opts_T<opts_data_T> = {}) {
-		const $cache_ctx:$cache_ctx_T<$value_T> = get(cache_ctx)
+		const $cache_ctx:$cache_ctx_T<$value_T> = cache_ctx.$
 		const now = new Date()
 		const cache_ctx_value = $cache_ctx[id]
 		const { expiration } = cache_ctx_value
-		let $cache_value = get(cache_ctx_value)
+		let $cache_value = cache_ctx_value.$
 		if (
 			$cache_value == null
 			|| (expiration && expiration < now)
@@ -81,7 +81,7 @@ export function _cache_ctx</*@formatter:off*/
 		}
 	}
 	function _cache_ctx_value():cache_ctx_value_T<$value_T> {
-		const cache_ctx_value = writable(null)
+		const cache_ctx_value = writable$(null)
 		return assign(cache_ctx_value, {}) as cache_ctx_value_T<$value_T>
 	}
 }
@@ -106,7 +106,7 @@ export interface cache_ctx_be_opts_T<opts_data_type extends unknown = unknown> {
 }
 export type cache_ctx_be_opts_type = cache_ctx_be_opts_T
 export interface cache_ctx_value_T<$value_type extends unknown = unknown>
-	extends Writable<$value_type> {
+	extends Writable$<$value_type> {
 	promise?:Promise<$value_type>
 	error?:any
 	period?:number
@@ -118,7 +118,7 @@ export type $cache_ctx_T<$value_type extends unknown = unknown> =
 	Record<string, cache_ctx_value_T<$value_type>>
 export type $cache_ctx_type = $cache_ctx_T
 export interface cache_ctx_T<$value_type extends unknown = unknown, opts_data_type extends unknown = unknown>
-	extends Readable<$cache_ctx_T<$value_type>> {
+	extends Readable$<$cache_ctx_T<$value_type>> {
 	be:(id:string, opts?:cache_ctx_be_opts_T<opts_data_type>)=>cache_ctx_value_T<$value_type>
 	ensure:(id:string, opts?:cache_ctx_be_opts_T<opts_data_type>)=>Promise<cache_ctx_value_T<$value_type>>
 }

@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 9.2.61
+
+### Patch Changes
+
+- \_cache_ctx: Readable$,Writable$
+
 ## 9.2.60
 
 ### Patch Changes
