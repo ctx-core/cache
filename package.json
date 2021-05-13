@@ -30,7 +30,7 @@
 		"@ctx-core/error": "workspace:^8.0.37",
 		"@ctx-core/function": "workspace:^17.8.5",
 		"@ctx-core/object": "workspace:^17.5.27",
-		"@ctx-core/store": "workspace:^24.7.23",
+		"@ctx-core/store": "workspace:^24.7.24",
 		"svelte": "3.38.2"
 	},
 	"devDependencies": {
