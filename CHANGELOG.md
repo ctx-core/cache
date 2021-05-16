@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 9.3.1
+
+### Patch Changes
+
+- fix: target: 2018: nodejs compatability
+- Updated dependencies [undefined]
+  - @ctx-core/error@8.1.1
+  - @ctx-core/function@17.9.1
+  - @ctx-core/object@17.6.1
+  - @ctx-core/store@24.8.1
+
 ## 9.3.0
 
 ### Minor Changes
