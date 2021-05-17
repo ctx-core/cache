@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 9.3.3
+
+### Patch Changes
+
+- fix: \_cache_ctx: ensure,be: falsy id: performs a load
+
 ## 9.3.2
 
 ### Patch Changes

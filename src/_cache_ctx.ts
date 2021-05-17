@@ -1,7 +1,6 @@
 import type { Timeout } from '@ctx-core/function'
 import { assign, clone } from '@ctx-core/object'
 import { _readable_set_ctx$, Readable$, writable$, Writable$ } from '@ctx-core/store'
-import { throw_invalid_argument, throw_invalid_argument_ctx_T } from '@ctx-core/error'
 export function _cache_ctx</*@formatter:off*/
 	$value_T extends unknown = unknown,
 	opts_data_T extends unknown = unknown,
@@ -21,13 +20,12 @@ export function _cache_ctx</*@formatter:off*/
 	}
 	async function ensure(
 		id:string, opts:cache_ctx_be_opts_T<opts_data_T> = {}
-	):Promise<cache_ctx_value_T<$value_T>> {
+	):Promise<cache_ctx_value_T<$value_T>|undefined> {
 		const cache_ctx_value = base_be(id)
 		await load(id, opts)
 		return cache_ctx_value
 	}
-	function base_be(id:string) {
-		if (!id) throw_invalid_argument({ key: 'id', value: id } as throw_invalid_argument_ctx_T)
+	function base_be(id:string):$cache_ctx_T<$value_T>[string]|undefined {
 		const $cache_ctx:$cache_ctx_T<$value_T> = cache_ctx.$
 		if (!$cache_ctx[id]) {
 			$cache_ctx[id] = _cache_ctx_value()
