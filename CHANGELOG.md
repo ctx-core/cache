@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 9.3.12
+
+### Patch Changes
+
+- types: ./src/index.d.ts: address error TS2742 issue
+- Updated dependencies [undefined]
+  - @ctx-core/error@8.1.11
+  - @ctx-core/function@17.9.3
+  - @ctx-core/object@18.0.6
+  - @ctx-core/store@24.8.10
+
 ## 9.3.11
 
 ### Patch Changes
