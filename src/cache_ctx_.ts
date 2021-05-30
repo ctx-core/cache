@@ -1,7 +1,7 @@
 import type { Timeout } from '@ctx-core/function'
 import { assign, clone } from '@ctx-core/object'
 import { _readable_set_ctx$, Readable$, writable$, Writable$ } from '@ctx-core/store'
-export function _cache_ctx</*@formatter:off*/
+export function cache_ctx_</*@formatter:off*/
 	$value_T extends unknown = unknown,
 	opts_data_T extends unknown = unknown,
 >/*@formatter:on*/(
@@ -79,7 +79,7 @@ export function _cache_ctx</*@formatter:off*/
 		}
 	}
 	function _cache_ctx_value():cache_ctx_value_T<$value_T> {
-		const cache_ctx_value = writable$(null)
+		const cache_ctx_value = writable$<$value_T|undefined>(undefined)
 		return assign(cache_ctx_value, {}) as cache_ctx_value_T<$value_T>
 	}
 }
@@ -121,3 +121,6 @@ export interface cache_ctx_T<$value_type extends unknown = unknown, opts_data_ty
 	ensure:(id:string, opts?:cache_ctx_be_opts_T<opts_data_type>)=>Promise<cache_ctx_value_T<$value_type>>
 }
 export type cache_ctx_type = cache_ctx_T
+export {
+	cache_ctx_ as _cache_ctx,
+}
