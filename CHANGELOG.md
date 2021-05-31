@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 10.1.1
+
+### Patch Changes
+
+- cache_ctx$2__opts_T->cache_ctx$**opts_T,cache_ctx_query_T->cache_ctx\$**query_T,cache_ctx_be_opts_T->cache_ctx$__be_opts_T,ctx_cache_value_T->cache_ctx$\_\_value_T
+
 ## 10.1.0
 
 ### Minor Changes
