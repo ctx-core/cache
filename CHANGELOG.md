@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 10.1.2
+
+### Patch Changes
+
+- cache_ctx$__value_T->cache_ctx_value$\_T
+
 ## 10.1.1
 
 ### Patch Changes
