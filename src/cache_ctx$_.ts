@@ -6,7 +6,7 @@ export function cache_ctx$_</*@formatter:off*/
 	opts_data_T extends unknown = unknown,
 >/*@formatter:on*/(
 	query:cache_ctx$__query_T<$value_T, cache_ctx$__be_opts_T<opts_data_T>>,
-	cache_ctx$__opts:cache_ctx$__opts_T = {},
+	cache_ctx$__opts:cache_ctx$__be_opts_T<opts_data_T> = {},
 ):cache_ctx$_T<$value_T, opts_data_T> {
 	const { store: cache_ctx$, set } = readable$_set_ctx_<cache_ctx_T<$value_T>>({})
 	return assign(cache_ctx$, {
@@ -87,7 +87,6 @@ export interface cache_ctx$__opts_T {
 	period?:number
 	poll?:boolean
 }
-export type _cache_ctx_opts_type = cache_ctx$__opts_T
 export type cache_ctx$__query_T</*@formatter:off*/
 	value_type extends unknown = unknown,
 	opts_data_type extends unknown = unknown,
@@ -95,14 +94,12 @@ export type cache_ctx$__query_T</*@formatter:off*/
 	id:string,
 	opts_data?:opts_data_type,
 )=>Promise<value_type>
-export type cache_ctx_query_type = cache_ctx$__query_T
 export interface cache_ctx$__be_opts_T<opts_data_type extends unknown = unknown> {
 	data?:opts_data_type
 	period?:number
 	poll?:boolean
 	force?:boolean
 }
-export type cache_ctx_be_opts_type = cache_ctx$__be_opts_T
 export interface cache_ctx_value$_T<$value_type extends unknown = unknown>
 	extends Writable$<$value_type> {
 	promise?:Promise<$value_type>
@@ -111,16 +108,13 @@ export interface cache_ctx_value$_T<$value_type extends unknown = unknown>
 	poll?:false|number|Timeout
 	expiration?:Date
 }
-export type cache_ctx_value_type = cache_ctx_value$_T
 export type cache_ctx_T<$value_type extends unknown = unknown> =
 	Record<string, cache_ctx_value$_T<$value_type>>
-export type $cache_ctx_type = cache_ctx_T
 export interface cache_ctx$_T<$value_type extends unknown = unknown, opts_data_type extends unknown = unknown>
 	extends Readable$<cache_ctx_T<$value_type>> {
 	be:(id:string, opts?:cache_ctx$__be_opts_T<opts_data_type>)=>cache_ctx_value$_T<$value_type>
 	ensure:(id:string, opts?:cache_ctx$__be_opts_T<opts_data_type>)=>Promise<cache_ctx_value$_T<$value_type>>
 }
-export type cache_ctx_type = cache_ctx$_T
 export {
 	cache_ctx$_ as _cache_ctx,
 }

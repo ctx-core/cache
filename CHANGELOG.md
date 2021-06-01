@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 10.1.3
+
+### Patch Changes
+
+- fix: cache*ctx\$*: cache_ctx$__opts:cache_ctx$\_\_be_opts_T<opts_data_T>: users opts_data_T generic
+
 ## 10.1.2
 
 ### Patch Changes
