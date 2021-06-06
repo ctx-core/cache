@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 10.1.7
+
+### Patch Changes
+
+- update dependencies
+
 ## 10.1.6
 
 ### Patch Changes
