@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "11.0.7",
+	"version": "11.0.8",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -24,13 +24,13 @@
 		"clean": "rm -f tsconfig.tsbuildinfo && rm -f src/**/*.js && rm -f src/**/*.d.ts && rm -f src/**/*.map",
 		"compile": "./node_modules/.bin/tsc -b .",
 		"exec": "$@",
-		"prepare": "npm run clean && npm run compile"
+		"prepublishOnly": "npm run clean && npm run compile"
 	},
 	"dependencies": {
-		"@ctx-core/error": "workspace:^10.0.6",
-		"@ctx-core/function": "workspace:^19.1.6",
-		"@ctx-core/object": "workspace:^20.0.7",
-		"@ctx-core/store": "workspace:^26.0.8",
+		"@ctx-core/error": "workspace:^10.0.7",
+		"@ctx-core/function": "workspace:^19.1.7",
+		"@ctx-core/object": "workspace:^20.0.8",
+		"@ctx-core/store": "workspace:^26.0.9",
 		"svelte": "3.38.2"
 	},
 	"devDependencies": {
