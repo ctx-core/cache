@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "11.0.15",
+	"version": "11.0.16",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -16,21 +16,21 @@
 	},
 	"license": "Apache-2.0",
 	"author": "Brian Takita",
-	"main": "./src/index.js",
-	"module": "./src/index.js",
-	"types": "./src/index.d.ts",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"scripts": {
 		"build": "npm run clean && npm run compile",
 		"clean": "rm -f tsconfig.tsbuildinfo && rm -f src/**/*.js && rm -f src/**/*.d.ts && rm -f src/**/*.map",
 		"compile": "./node_modules/.bin/tsc -b .",
 		"exec": "$@",
-		"prepublishOnly": "npm run clean && npm run compile"
+		"prepublishOnly": "npm run build"
 	},
 	"dependencies": {
-		"@ctx-core/error": "workspace:^10.1.4",
-		"@ctx-core/function": "workspace:^19.1.9",
-		"@ctx-core/object": "workspace:^20.2.1",
-		"@ctx-core/store": "workspace:^26.0.16",
+		"@ctx-core/error": "workspace:^10.1.5",
+		"@ctx-core/function": "workspace:^19.1.10",
+		"@ctx-core/object": "workspace:^20.2.2",
+		"@ctx-core/store": "workspace:^26.0.17",
 		"svelte": "3.38.3"
 	},
 	"devDependencies": {
