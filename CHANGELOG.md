@@ -1,5 +1,14 @@
 # @ctx-core/cache
 
+## 11.0.20
+
+### Patch Changes
+
+- update dependencies
+- Updated dependencies [undefined]
+  - @ctx-core/error@10.1.7
+  - @ctx-core/store@26.0.22
+
 ## 11.0.19
 
 ### Patch Changes
