@@ -28,7 +28,7 @@
 		"prepublishOnly": "npm run build"
 	},
 	"dependencies": {
-		"@ctx-core/error": "workspace:^11.0.2",
+		"@ctx-core/error": "workspace:^11.0.3",
 		"@ctx-core/function": "workspace:^20.0.2",
 		"@ctx-core/object": "workspace:^21.0.2",
 		"@ctx-core/store": "workspace:^27.0.2",
