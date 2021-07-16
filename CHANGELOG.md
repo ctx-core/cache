@@ -1,5 +1,38 @@
 # @ctx-core/cache
 
+## 12.0.6
+
+### Patch Changes
+
+- back to esm module with cjs using esm npm package to load library
+- Updated dependencies [undefined]
+  - @ctx-core/error@11.0.6
+  - @ctx-core/function@20.0.5
+  - @ctx-core/object@21.0.5
+  - @ctx-core/store@27.0.4
+
+## 12.0.5
+
+### Patch Changes
+
+- back to esm module with cjs using esm npm package to load library
+- Updated dependencies [undefined]
+  - @ctx-core/error@11.0.5
+  - @ctx-core/function@20.0.4
+  - @ctx-core/object@21.0.4
+  - @ctx-core/store@27.0.4
+
+## 12.0.4
+
+### Patch Changes
+
+- back to esm module with cjs using esm npm package to load library
+- Updated dependencies [undefined]
+  - @ctx-core/error@11.0.5
+  - @ctx-core/function@20.0.4
+  - @ctx-core/object@21.0.4
+  - @ctx-core/store@27.0.4
+
 ## 12.0.3
 
 ### Patch Changes
