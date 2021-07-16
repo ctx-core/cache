@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "12.0.6",
+	"version": "12.0.7",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -28,15 +28,15 @@
 		"build": "npm run clean && npm run copy-mjs && npm run compile",
 		"clean": "rm -f tsconfig.tsbuildinfo && rm -f src/**/*.js && rm -f src/**/*.d.ts && rm -f src/**/*.map",
 		"compile": "./node_modules/.bin/tsc -b .",
-		"copy-mjs": "cd dist && echo \"require = require('esm')(module/*, options*/)\nmodule.exports = require('./main.js')\nexport * from './index.js'\" > index.cjs",
+		"copy-mjs": "cd dist && echo \"require = require('esm')(module)\nmodule.exports = require('./index.js')\" > index.cjs",
 		"exec": "$@",
 		"prepublishOnly": "npm run build"
 	},
 	"dependencies": {
-		"@ctx-core/error": "workspace:^11.0.6",
-		"@ctx-core/function": "workspace:^20.0.5",
-		"@ctx-core/object": "workspace:^21.0.5",
-		"@ctx-core/store": "workspace:^27.0.4",
+		"@ctx-core/error": "workspace:^11.0.7",
+		"@ctx-core/function": "workspace:^20.0.6",
+		"@ctx-core/object": "workspace:^21.0.6",
+		"@ctx-core/store": "workspace:^27.0.5",
 		"esm": "^3.2.25",
 		"svelte": "3.38.3"
 	},
