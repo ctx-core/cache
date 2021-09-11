@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "12.0.31",
+	"version": "12.0.32",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -37,9 +37,9 @@
 	},
 	"dependencies": {
 		"@ctx-core/error": "workspace:^11.0.16",
-		"@ctx-core/function": "workspace:^20.2.0",
-		"@ctx-core/object": "workspace:^21.0.19",
-		"@ctx-core/store": "workspace:^27.0.29",
+		"@ctx-core/function": "workspace:^20.2.1",
+		"@ctx-core/object": "workspace:^21.0.20",
+		"@ctx-core/store": "workspace:^27.0.30",
 		"esm": "^3.2.25",
 		"svelte": "3.42.5"
 	},
