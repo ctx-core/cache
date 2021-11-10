@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 12.0.38
+
+### Patch Changes
+
+- compile using swc
+- Updated dependencies
+  - @ctx-core/error@11.0.18
+  - @ctx-core/function@20.2.3
+  - @ctx-core/object@21.0.22
+  - @ctx-core/store@27.0.36
+
 ## 12.0.37
 
 ### Patch Changes
