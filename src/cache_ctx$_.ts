@@ -29,10 +29,10 @@ export function cache_ctx$_</*@formatter:off*/
 	async function ensure_val(
 		id:string, opts:cache_ctx$__be_opts_T<opts_data_T> = {}
 	):Promise<Val|nullish> {
-		return (await ensure(id, opts))._
+		return (await ensure(id, opts)).$
 	}
 	function base_be(id:string):cache_ctx_T<Val>[string] {
-		const cache_ctx:cache_ctx_T<Val> = cache_ctx$._
+		const cache_ctx:cache_ctx_T<Val> = cache_ctx$.$
 		if (!cache_ctx[id]) {
 			cache_ctx[id] = cache_ctx_val_()
 			set(cache_ctx)
@@ -40,11 +40,11 @@ export function cache_ctx$_</*@formatter:off*/
 		return cache_ctx[id]
 	}
 	async function load(id:string, opts:cache_ctx$__be_opts_T<opts_data_T> = {}) {
-		const cache_ctx:cache_ctx_T<Val> = cache_ctx$._
+		const cache_ctx:cache_ctx_T<Val> = cache_ctx$.$
 		const now = new Date()
 		const cache_ctx_value$ = cache_ctx[id]
 		const { expiration } = cache_ctx_value$
-		let cache_ctx_value = cache_ctx_value$._
+		let cache_ctx_value = cache_ctx_value$.$
 		if (
 			cache_ctx_value == null
 			|| (expiration && expiration < now)
