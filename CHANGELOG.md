@@ -1,5 +1,14 @@
 # @ctx-core/cache
 
+## 12.0.47
+
+### Patch Changes
+
+- package.json: - "main": explicitly not support cjs
+- Updated dependencies
+  - @ctx-core/error@11.1.8
+  - @ctx-core/store@27.0.45
+
 ## 12.0.46
 
 ### Patch Changes
