@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 12.0.48
+
+### Patch Changes
+
+- package.json: - module
+- Updated dependencies
+- Updated dependencies
+  - @ctx-core/object@22.0.0
+  - @ctx-core/error@11.1.9
+  - @ctx-core/store@27.0.46
+
 ## 12.0.47
 
 ### Patch Changes
