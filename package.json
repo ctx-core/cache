@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "12.0.50",
+	"version": "12.0.51",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -19,8 +19,8 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"types": "./src/index.ts",
-			"import": "./dist/index.js"
+			"import": "./dist/index.js",
+			"types": "./src/index.ts"
 		},
 		"./package.json": "./package.json"
 	},
@@ -32,10 +32,10 @@
 		"prepublishOnly": "npm run clean && npm run build"
 	},
 	"dependencies": {
-		"@ctx-core/error": "workspace:^11.1.10",
-		"@ctx-core/function": "workspace:^20.2.13",
-		"@ctx-core/object": "workspace:^22.0.1",
-		"@ctx-core/store": "workspace:^27.0.48",
+		"@ctx-core/error": "workspace:^11.1.11",
+		"@ctx-core/function": "workspace:^20.2.14",
+		"@ctx-core/object": "workspace:^22.0.2",
+		"@ctx-core/store": "workspace:^27.0.49",
 		"svelte": "^3.44.3"
 	},
 	"devDependencies": {
