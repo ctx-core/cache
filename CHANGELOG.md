@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 12.0.52
+
+### Patch Changes
+
+- fix: tsconfig.json: "rootDir": "."
+- Updated dependencies
+  - @ctx-core/error@11.1.12
+  - @ctx-core/function@20.2.15
+  - @ctx-core/object@22.0.3
+  - @ctx-core/store@27.0.50
+
 ## 12.0.51
 
 ### Patch Changes
