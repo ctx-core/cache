@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 12.0.57
+
+### Patch Changes
+
+- fix: error TS6059: \* is not under 'rootDir': package.json: types: ./dist/index.d.ts
+- Updated dependencies
+  - @ctx-core/error@11.1.17
+  - @ctx-core/function@20.2.20
+  - @ctx-core/object@22.0.8
+  - @ctx-core/store@27.0.55
+
 ## 12.0.56
 
 ### Patch Changes
