@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "12.0.54",
+	"version": "12.0.55",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -17,7 +17,7 @@
 	"license": "Apache-2.0",
 	"author": "Brian Takita",
 	"type": "module",
-	"types": "./dist/index.d.ts",
+	"types": "./src/index.ts",
 	"exports": {
 		".": {
 			"import": "./dist/index.js"
@@ -35,10 +35,10 @@
 		"prepublishOnly": "npm run clean && npm run build"
 	},
 	"dependencies": {
-		"@ctx-core/error": "workspace:^11.1.14",
-		"@ctx-core/function": "workspace:^20.2.17",
-		"@ctx-core/object": "workspace:^22.0.5",
-		"@ctx-core/store": "workspace:^27.0.52",
+		"@ctx-core/error": "workspace:^11.1.15",
+		"@ctx-core/function": "workspace:^20.2.18",
+		"@ctx-core/object": "workspace:^22.0.6",
+		"@ctx-core/store": "workspace:^27.0.53",
 		"svelte": "^3.44.3"
 	},
 	"devDependencies": {

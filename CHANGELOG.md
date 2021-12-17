@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 12.0.55
+
+### Patch Changes
+
+- package.json: "types": "./src/index.ts": better editing experience
+- Updated dependencies
+  - @ctx-core/error@11.1.15
+  - @ctx-core/function@20.2.18
+  - @ctx-core/object@22.0.6
+  - @ctx-core/store@27.0.53
+
 ## 12.0.54
 
 ### Patch Changes
