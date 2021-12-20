@@ -1,6 +1,6 @@
 import type { nullish, Timeout } from '@ctx-core/function'
 import { assign, clone } from '@ctx-core/object'
-import { readable$_set_ctx_, Readable$, writable$, Writable$ } from '@ctx-core/store'
+import { ReadableAtom$, atom$, WritableAtom$, split_atom$ } from '@ctx-core/nanostores'
 export function cache_ctx$_</*@formatter:off*/
 	Val extends unknown = unknown,
 	opts_data_T extends unknown = unknown,
@@ -8,7 +8,7 @@ export function cache_ctx$_</*@formatter:off*/
 	query:cache_ctx$__query_T<Val, cache_ctx$__be_opts_T<opts_data_T>>,
 	cache_ctx$__opts:cache_ctx$__be_opts_T<opts_data_T> = {},
 ):cache_ctx$_T<Val, opts_data_T> {
-	const { store: cache_ctx$, set } = readable$_set_ctx_<cache_ctx_T<Val>>({})
+	const [cache_ctx$, set] = split_atom$<cache_ctx_T<Val>>({})
 	return assign(cache_ctx$, {
 		be,
 		ensure,
@@ -85,7 +85,7 @@ export function cache_ctx$_</*@formatter:off*/
 		}
 	}
 	function cache_ctx_val_():cache_ctx_value$_T<Val> {
-		return writable$<Val|undefined>(undefined) as cache_ctx_value$_T<Val>
+		return atom$<Val|undefined>(undefined) as cache_ctx_value$_T<Val>
 	}
 }
 export interface cache_ctx$__opts_T {
@@ -106,7 +106,7 @@ export interface cache_ctx$__be_opts_T<opts_data_T extends unknown = unknown> {
 	force?:boolean
 }
 export interface cache_ctx_value$_T<Val extends unknown = unknown>
-	extends Writable$<Val|nullish> {
+	extends WritableAtom$<Val|nullish> {
 	promise?:Promise<Val>
 	error?:any
 	period?:number
@@ -116,7 +116,7 @@ export interface cache_ctx_value$_T<Val extends unknown = unknown>
 export type cache_ctx_T<Val extends unknown = unknown> =
 	Record<string, cache_ctx_value$_T<Val>>
 export interface cache_ctx$_T<Val extends unknown = unknown, opts_data_T extends unknown = unknown>
-	extends Readable$<cache_ctx_T<Val>> {
+	extends ReadableAtom$<cache_ctx_T<Val>> {
 	be:
 		(id:string, opts?:cache_ctx$__be_opts_T<opts_data_T>)=>
 			cache_ctx_value$_T<Val>

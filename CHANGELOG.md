@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 13.0.0
+
+### Major Changes
+
+- using @ctx-core/nanostores for stores instead of @ctx-core/store,@ctx-core/svelte
+
 ## 12.0.57
 
 ### Patch Changes
