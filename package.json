@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "13.0.0",
+	"version": "13.0.1",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -37,7 +37,7 @@
 	"dependencies": {
 		"@ctx-core/error": "workspace:^11.1.17",
 		"@ctx-core/function": "workspace:^20.2.20",
-		"@ctx-core/nanostores": "workspace:^0.1.0",
+		"@ctx-core/nanostores": "workspace:^0.1.1",
 		"@ctx-core/object": "workspace:^22.0.8",
 		"svelte": "^3.44.3"
 	},
