@@ -1,5 +1,15 @@
 # @ctx-core/cache
 
+## 13.0.6
+
+### Patch Changes
+
+- .js + .d.ts instead of .ts
+- Updated dependencies
+  - @ctx-core/error@11.1.18
+  - @ctx-core/function@20.2.21
+  - @ctx-core/nanostores@0.3.1
+
 ## 13.0.5
 
 ### Patch Changes
