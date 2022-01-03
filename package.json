@@ -36,9 +36,9 @@
 	},
 	"dependencies": {
 		"@ctx-core/error": "workspace:^11.1.20",
-		"@ctx-core/function": "workspace:^20.2.21",
+		"@ctx-core/function": "workspace:^20.2.22",
 		"@ctx-core/nanostores": "workspace:^0.3.1",
-		"@ctx-core/object": "workspace:^22.0.8",
+		"@ctx-core/object": "workspace:^22.0.9",
 		"svelte": "^3.44.3"
 	},
 	"devDependencies": {
