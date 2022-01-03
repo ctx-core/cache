@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 13.0.7
+
+### Patch Changes
+
+- version bump
+- Updated dependencies
+  - @ctx-core/error@11.1.21
+  - @ctx-core/function@20.2.23
+  - @ctx-core/nanostores@0.3.2
+  - @ctx-core/object@22.0.10
+
 ## 13.0.6
 
 ### Patch Changes
