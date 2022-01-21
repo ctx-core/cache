@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "13.0.16",
+	"version": "14.0.0",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -17,40 +17,41 @@
 	"license": "Apache-2.0",
 	"author": "Brian Takita",
 	"type": "module",
-	"types": "./lib/index.d.ts",
+	"types": "./src/index.d.ts",
+	"svelte": "./src/index.js",
 	"exports": {
 		".": {
-			"import": "./lib/index.js"
+			"import": "./src/index.js"
 		},
 		"./package.json": "./package.json"
 	},
 	"scripts": {
-		"build": "npm run compile",
-		"clean": "rimraf lib && npm run clean:tsbuildinfo",
-		"clean:tsbuildinfo": "rimraf tsconfig.tsbuildinfo && rimraf lib/**/*.d.ts",
-		"compile": "npm run compile:source && npm run compile:declaration",
-		"compile:source": "swc src --out-dir lib --copy-files --source-maps --config-file .swcrc",
-		"compile:declaration": "npm run clean:tsbuildinfo && tsc --declaration --emitDeclarationOnly --declarationDir lib",
+		"build": ":",
+		"clean": ":",
 		"exec": "$@",
-		"prepublishOnly": "npm run clean && npm run build"
+		"prepublishOnly": "npm run clean && npm run build && npm run test",
+		"test": "pnpm test-unit && check-dts",
+		"test-unit": "tsm node_modules/uvu/bin.js . '\\.test\\.(ts|js)$'",
+		"test-unit-coverage": "c8 pnpm test-unit"
 	},
 	"dependencies": {
 		"@ctx-core/error": "workspace:^11.1.23",
 		"@ctx-core/function": "workspace:^20.4.0",
 		"@ctx-core/nanostores": "workspace:^0.4.2",
-		"@ctx-core/object": "workspace:^22.0.12",
+		"@ctx-core/object": "workspace:^22.0.13",
 		"svelte": "^3.46.2"
 	},
 	"devDependencies": {
-		"@swc/cli": "^0.1.55",
-		"@swc/core": "^1.2.133",
-		"rimraf": "^3.0.2",
-		"typescript": "next"
+		"c8": "^7.11.0",
+		"check-dts": "^0.6.6",
+		"tslib": "^2.3.1",
+		"tsm": "^2.2.1",
+		"typescript": "next",
+		"uvu": "^0.5.3"
 	},
 	"publishConfig": {
 		"access": "public",
 		"cache": "~/.npm"
 	},
-	"svelte": "./lib/index.js",
 	"sideEffects": false
 }

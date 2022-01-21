@@ -1,5 +1,18 @@
 # @ctx-core/cache
 
+## 14.0.0
+
+### Major Changes
+
+- cache*ctx\$*,cache_ctx$_T: be,ensure,ensure_val: opts (cache_ctx$\_\_be_opts_T<opts_data_T>) is a required arugument
+- - cache_ctx\$\_\_opts_T
+- cache*ctx\$*: opts argument is a cache_ctx\$\_\_opts_T: period?,poll?
+
+### Patch Changes
+
+- Updated dependencies
+  - @ctx-core/object@22.0.13
+
 ## 13.0.16
 
 ### Patch Changes
