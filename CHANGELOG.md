@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 13.0.16
+
+### Patch Changes
+
+- update dependencies
+
 ## 13.0.15
 
 ### Patch Changes
