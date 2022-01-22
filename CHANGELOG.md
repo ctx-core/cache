@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 14.0.1
+
+### Patch Changes
+
+- fix: cache*ctx\$*: load: error when cache_ctx\$\_\_opts is falsy
+
 ## 14.0.0
 
 ### Major Changes

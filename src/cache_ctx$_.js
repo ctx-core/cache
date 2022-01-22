@@ -85,12 +85,12 @@ export function cache_ctx$_(query, cache_ctx$__opts) {
 			try {
 				cache_ctx_value = await cache_ctx_value$.promise
 				cache_ctx_value$.set(cache_ctx_value)
-				const period = opts?.period || cache_ctx$__opts.period
+				const period = opts?.period || cache_ctx$__opts?.period
 				cache_ctx_value$.period = period
 				if (period) {
 					cache_ctx_value$.expiration = new Date(new Date().getTime() + period)
 				}
-				const poll = opts?.poll != null ? opts.poll : cache_ctx$__opts.poll != null ? cache_ctx$__opts.poll : undefined
+				const poll = opts?.poll != null ? opts.poll : cache_ctx$__opts?.poll != null ? cache_ctx$__opts?.poll : undefined
 				if (poll) {
 					cache_ctx_value$.poll = setTimeout(()=>{
 						cache_ctx_value$.poll = null
