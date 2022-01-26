@@ -85,10 +85,13 @@ export function cache_ctx$_(query, cache_ctx$__opts) {
 			try {
 				cache_ctx_value = await cache_ctx_value$.promise
 				cache_ctx_value$.set(cache_ctx_value)
-				const period = opts?.period || cache_ctx$__opts?.period
-				cache_ctx_value$.period = period
-				if (period) {
-					cache_ctx_value$.expiration = new Date(new Date().getTime() + period)
+				const ttl = opts?.ttl || cache_ctx$__opts?.ttl || opts?.period || cache_ctx$__opts?.period
+				if (opts?.period || cache_ctx$__opts?.period) {
+					console.warn('cache_ctx$_|period|deprecated|use ttl instead')
+				}
+				cache_ctx_value$.period = ttl
+				if (ttl) {
+					cache_ctx_value$.expiration = new Date(new Date().getTime() + ttl)
 				}
 				const poll = opts?.poll != null ? opts.poll : cache_ctx$__opts?.poll != null ? cache_ctx$__opts?.poll : undefined
 				if (poll) {
@@ -97,7 +100,7 @@ export function cache_ctx$_(query, cache_ctx$__opts) {
 						ensure(id, clone(opts, {
 							force: true
 						}))
-					}, period)
+					}, ttl)
 				} else {
 					cache_ctx_value$.poll = null
 				}

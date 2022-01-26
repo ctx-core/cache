@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 14.1.0
+
+### Minor Changes
+
+- cache*ctx\$*: ttl opt instead of period: period is deprecated
+
 ## 14.0.1
 
 ### Patch Changes

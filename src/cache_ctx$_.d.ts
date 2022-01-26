@@ -5,6 +5,7 @@ export declare function cache_ctx$_<Val extends unknown = unknown, opts_data_T e
 	cache_ctx$__opts?:cache_ctx$__opts_T
 ):cache_ctx$_T<Val, opts_data_T>;
 export interface cache_ctx$__opts_T {
+	ttl?:number;
 	period?:number;
 	poll?:boolean;
 }
@@ -12,6 +13,7 @@ export declare type cache_ctx$__query_T<Val extends unknown = unknown, opts_data
 	(id:string, opts_data?:opts_data_T)=>Promise<Val>;
 export interface cache_ctx$__be_opts_T<opts_data_T extends unknown = unknown> extends cache_ctx$__opts_T {
 	data?:opts_data_T;
+	ttl?:number;
 	period?:number;
 	poll?:boolean;
 	force?:boolean;
@@ -19,6 +21,7 @@ export interface cache_ctx$__be_opts_T<opts_data_T extends unknown = unknown> ex
 export interface cache_ctx_value$_T<Val extends unknown = unknown> extends WritableAtom$<Val|nullish> {
 	promise?:Promise<Val>;
 	error?:any;
+	ttl?:number;
 	period?:number;
 	poll?:number|Timeout|nullish;
 	expiration?:Date;
