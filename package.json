@@ -39,7 +39,7 @@
 		"@ctx-core/function": "workspace:^20.4.0",
 		"@ctx-core/nanostores": "workspace:^0.5.2",
 		"@ctx-core/object": "workspace:^22.0.13",
-		"svelte": "^3.46.3"
+		"svelte": "^3.46.4"
 	},
 	"devDependencies": {
 		"c8": "^7.11.0",
