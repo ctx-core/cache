@@ -35,10 +35,10 @@
 		"test-unit-coverage": "c8 pnpm test-unit"
 	},
 	"dependencies": {
-		"@ctx-core/error": "workspace:^11.3.0",
-		"@ctx-core/function": "workspace:^20.4.0",
-		"@ctx-core/nanostores": "workspace:^0.5.3",
-		"@ctx-core/object": "workspace:^22.0.13",
+		"@ctx-core/error": "^11.3.0",
+		"@ctx-core/function": "^20.4.0",
+		"@ctx-core/nanostores": "^0.5.3",
+		"@ctx-core/object": "^22.0.13",
 		"svelte": "^3.46.4"
 	},
 	"devDependencies": {
