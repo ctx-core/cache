@@ -1,5 +1,14 @@
 # @ctx-core/cache
 
+## 14.1.5
+
+### Patch Changes
+
+- update dependencies
+- Updated dependencies
+  - @ctx-core/error@11.3.1
+  - @ctx-core/nanostores@0.5.4
+
 ## 14.1.4
 
 ### Patch Changes
