@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 14.1.12
+
+### Patch Changes
+
+- update dependencies
+
 ## 14.1.11
 
 ### Patch Changes
