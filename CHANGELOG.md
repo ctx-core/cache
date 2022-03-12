@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 14.1.13
+
+### Patch Changes
+
+- nanostores: ^0.5.12
+
 ## 14.1.12
 
 ### Patch Changes
