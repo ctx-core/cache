@@ -37,7 +37,7 @@
 	"dependencies": {
 		"@ctx-core/error": "^11.4.0",
 		"@ctx-core/function": "*",
-		"@ctx-core/nanostores": "^1.0.6",
+		"@ctx-core/nanostores": "^1.0.7",
 		"@ctx-core/object": "*",
 		"svelte": "^3.46.4"
 	},
