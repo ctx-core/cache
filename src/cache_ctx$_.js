@@ -25,34 +25,34 @@ export function cache_ctx$_(query, cache_ctx$__opts) {
 	}))
 	return cache_ctx$
 	/**
-	 * @param {string} id
 	 * @param {cache_ctx$__be_opts_T<unknown>} opts
+	 * @param {string} id
 	 * @returns {cache_ctx_value$_T<unknown>}
 	 * @private
 	 */
-	function be(id, opts) {
+	function be(opts, id = opts.data.toString()) {
 		const cache_ctx_value$ = base_be(id)
 		load(id, opts).then()
 		return cache_ctx_value$
 	}
 	/**
-	 * @param {string} id
 	 * @param {cache_ctx$__be_opts_T<unknown>} opts
+	 * @param {string} id
 	 * @returns {Promise<cache_ctx_value$_T<unknown>|nullish>}
 	 * @private
 	 */
-	async function ensure(id, opts) {
+	async function ensure(opts, id = opts.data.toString()) {
 		const cache_ctx_value$ = base_be(id)
 		await load(id, opts)
 		return cache_ctx_value$
 	}
 	/**
-	 * @param {string} id
 	 * @param {cache_ctx$__be_opts_T<unknown>} opts
+	 * @param {string} id
 	 * @returns {Promise<unknown|nullish>}
 	 * @private
 	 */
-	async function ensure_val(id, opts) {
+	async function ensure_val(opts, id = opts.data.toString()) {
 		return (await ensure(id, opts)).$
 	}
 	/**
@@ -68,11 +68,11 @@ export function cache_ctx$_(query, cache_ctx$__opts) {
 		return cache_ctx[id]
 	}
 	/**
-	 * @param {string} id
 	 * @param {cache_ctx$__be_opts_T<unknown>} opts
+	 * @param {string} id
 	 * @returns {Promise<void>}
 	 */
-	async function load(id, opts) {
+	async function load(opts, id = opts.data.toString()) {
 		const cache_ctx = cache_ctx$.$
 		const now = new Date()
 		const cache_ctx_value$ = cache_ctx[id]
@@ -80,7 +80,7 @@ export function cache_ctx$_(query, cache_ctx$__opts) {
 		let cache_ctx_value = cache_ctx_value$.$
 		if (cache_ctx_value == null || expiration && expiration < now || opts.force) {
 			if (!cache_ctx_value$.promise) {
-				cache_ctx_value$.promise = query(id, opts)
+				cache_ctx_value$.promise = query(id, opts.data)
 			}
 			try {
 				cache_ctx_value = await cache_ctx_value$.promise

@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 15.0.0
+
+### Major Changes
+
+- cache*ctx\$*: query,be,ensure,ensure_val: opts before id,id is optional (defaults to opts.data.toString())
+
 ## 14.1.14
 
 ### Patch Changes
