@@ -1,5 +1,14 @@
 # @ctx-core/cache
 
+## 16.0.0
+
+### Major Changes
+
+- cache*ctx\$*
+
+  cache*ctx\$\_\_opts: + id*: factory function takes query_data & returns the cache id
+  query,be,ensure,ensure_val,load: (query_data:query_data_T, opts?:cache_ctx\$\_\_be_opts_T)
+
 ## 15.0.0
 
 ### Major Changes
