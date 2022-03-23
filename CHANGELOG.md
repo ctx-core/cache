@@ -1,5 +1,14 @@
 # @ctx-core/cache
 
+## 16.0.1
+
+### Patch Changes
+
+- update dependencies
+- Updated dependencies
+  - @ctx-core/error@11.4.1
+  - @ctx-core/object@22.1.3
+
 ## 16.0.0
 
 ### Major Changes
