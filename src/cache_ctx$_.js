@@ -108,10 +108,10 @@ export function cache_ctx$_(query, cache_ctx$__opts = {}) {
 				} else {
 					cache_ctx_value$.poll = null
 				}
-			} catch (e) {
-				console.error(e)
-				cache_ctx_value$.error = e
-				throw e
+			} catch (err) {
+				console.error(err)
+				cache_ctx_value$.error = err
+				throw err
 			}
 		}
 	}
