@@ -1,5 +1,16 @@
 # @ctx-core/cache
 
+## 16.1.0
+
+### Minor Changes
+
+- cache*ctx\$*: feat: + set(id, val)
+- feat: cache$_ aliased by cache_ctx$\_
+
+### Patch Changes
+
+- cache*ctx\$*: be,ensure,base_be: cache_ctx_value == null || expiration < now || opts.force: fix: reload using new promise
+
 ## 16.0.1
 
 ### Patch Changes
