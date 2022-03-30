@@ -21,6 +21,7 @@ export interface cache_ctx$__be_opts_T extends cache_ctx$__opts_T {
 }
 export interface cache_ctx_value$_T<Val extends unknown = unknown> extends WritableAtom$<Val|nullish> {
 	promise?:Promise<Val>;
+	promise_rc?:number
 	error?:any;
 	ttl?:number;
 	period?:number;
@@ -32,5 +33,6 @@ export interface cache_ctx$_T<Val extends unknown = unknown, query_data_T extend
 	be:(query_data:query_data_T, opts?:cache_ctx$__be_opts_T)=>cache_ctx_value$_T<Val>;
 	ensure:(query_data:query_data_T, opts?:cache_ctx$__be_opts_T)=>Promise<cache_ctx_value$_T<Val>|nullish>;
 	ensure_val:(query_data:query_data_T, opts?:cache_ctx$__be_opts_T)=>Promise<Val|nullish>;
+	set:(id:string, val:Val)=>void
 }
 export { cache_ctx$_ as _cache_ctx, }

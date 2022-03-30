@@ -22,7 +22,11 @@ export function cache_ctx$_(query, cache_ctx$__opts = {}) {
 	assign(cache_ctx$, ({
 		be,
 		ensure,
-		ensure_val
+		ensure_val,
+		set: (id, val)=>{
+			const cache_ctx_value$ = base_be(id)
+			cache_ctx_value$.$ = val
+		}
 	}))
 	return cache_ctx$
 	/**
@@ -43,7 +47,7 @@ export function cache_ctx$_(query, cache_ctx$__opts = {}) {
 	 * @private
 	 */
 	async function ensure(query_data, opts = {}) {
-		const cache_ctx_value$ = base_be(query_data, opts)
+		const cache_ctx_value$ = base_be(opts.id || id_(query_data))
 		await load(query_data, opts)
 		return cache_ctx_value$
 	}
@@ -61,9 +65,8 @@ export function cache_ctx$_(query, cache_ctx$__opts = {}) {
 	 * @param {cache_ctx$__be_opts_T} opts
 	 * @returns {cache_ctx_value$_T}
 	 */
-	function base_be(query_data, opts = {}) {
+	function base_be(id) {
 		const cache_ctx = cache_ctx$.$
-		const id = opts.id || id_(query_data)
 		if (!cache_ctx[id]) {
 			cache_ctx[id] = cache_ctx_val_()
 			set(cache_ctx)
@@ -82,18 +85,24 @@ export function cache_ctx$_(query, cache_ctx$__opts = {}) {
 		const cache_ctx_value$ = cache_ctx[id]
 		const { expiration } = cache_ctx_value$
 		let cache_ctx_value = cache_ctx_value$.$
-		if (cache_ctx_value == null || expiration && expiration < now || opts.force) {
+		if (cache_ctx_value == null || (expiration && expiration < now) || opts.force) {
+			if (cache_ctx_value$.promise_rc == null) {
+				cache_ctx_value$.promise_rc = 0
+			}
 			if (!cache_ctx_value$.promise) {
 				cache_ctx_value$.promise = query(query_data)
 			}
 			try {
+				cache_ctx_value$.promise_rc++
 				cache_ctx_value = await cache_ctx_value$.promise
-				cache_ctx_value$.set(cache_ctx_value)
+				cache_ctx_value$.promise_rc--
+				if (!cache_ctx_value$.promise_rc) cache_ctx_value$.promise = null
+				cache_ctx_value$.$ = cache_ctx_value
 				const ttl = opts?.ttl || cache_ctx$__opts?.ttl || opts?.period || cache_ctx$__opts?.period
 				if (opts?.period || cache_ctx$__opts?.period) {
 					console.warn('cache_ctx$_|period|deprecated|use ttl instead')
+					cache_ctx_value$.period = ttl
 				}
-				cache_ctx_value$.period = ttl
 				if (ttl) {
 					cache_ctx_value$.expiration = new Date(new Date().getTime() + ttl)
 				}
