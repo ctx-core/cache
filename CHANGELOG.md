@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 17.3.1
+
+### Patch Changes
+
+- cache_init_T: fix: disambiguate to Record<string, Val>: cache\$.init: cache_init_T|(()=>cache_init_T)
+
 ## 17.3.0
 
 ### Minor Changes
