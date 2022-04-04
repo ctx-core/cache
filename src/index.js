@@ -1,1 +1,1 @@
-export * from './cache$_.js'
+export * from './cache$_/index.js'
