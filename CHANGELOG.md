@@ -1,5 +1,15 @@
 # @ctx-core/cache
 
+## 17.0.0
+
+### Major Changes
+
+- cache$_: base_be: BREAKING CHANGE: atom$(null) instead of atom\$(undefined)
+
+### Minor Changes
+
+- cache$_: cache$\_\_opts_T: feat: + init
+
 ## 16.1.0
 
 ### Minor Changes
