@@ -1,5 +1,15 @@
 # @ctx-core/cache
 
+## 17.3.0
+
+### Minor Changes
+
+- cache\$\_: feat: subscribe_init
+
+### Patch Changes
+
+- cache\$\_: subscribe: fix: calls listener when val is set
+
 ## 17.2.0
 
 ### Minor Changes

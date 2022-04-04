@@ -4,6 +4,7 @@ import { assign, clone } from '@ctx-core/object'
 /** @typedef {import('./index.d.ts').cache$__query_T}cache$__query_T */
 /** @typedef {import('./index.d.ts').cache$__opts_T}cache$__opts_T */
 /** @typedef {import('./index.d.ts').cache$_T}cache$_T */
+/** @typedef {import('./index.d.ts').cache_init_T}cache_init_T */
 /** @typedef {import('./index.d.ts').cache_val$_T}cache_val$_T */
 /** @typedef {import('@ctx-core/nanostores').split_atom$_ret_T}split_atom$_ret_T */
 /** @typedef {import('@ctx-core/nanostores').WritableAtom$}WritableAtom$ */
@@ -34,12 +35,14 @@ export function cache$_(query, cache$__opts = {}) {
 		ensure,
 		ensure_val,
 		set: set_val,
+		subscribe_init,
 		to_init
 	}))
 	return cache$
 	function set_val(id, val) {
 		const cache_val$ = base_be(id)
 		cache_val$.$ = val
+		set(cache$.$)
 	}
 	/**
 	 * @param {unknown} query_data
@@ -80,7 +83,6 @@ export function cache$_(query, cache$__opts = {}) {
 		const cache = cache$.$
 		if (!cache[id]) {
 			cache[id] = atom$(null)
-			set(cache)
 		}
 		return cache[id]
 	}
@@ -108,7 +110,7 @@ export function cache$_(query, cache$__opts = {}) {
 				cache_val = await cache_val$.promise
 				cache_val$.promise_rc--
 				if (!cache_val$.promise_rc) cache_val$.promise = null
-				cache_val$.$ = cache_val
+				set_val(id, cache_val)
 				const ttl = opts?.ttl || cache$__opts?.ttl || opts?.period || cache$__opts?.period
 				if (opts?.period || cache$__opts?.period) {
 					console.warn('cache$_|period|deprecated|use ttl instead')
@@ -135,6 +137,16 @@ export function cache$_(query, cache$__opts = {}) {
 			}
 		}
 	}
+	/**
+	 * @param {(value:cache_init_T<unknown>)=>void}listener
+	 * @return {() => void}
+	 */
+	function subscribe_init(listener) {
+		return cache$.subscribe(()=>listener(cache$.to_init()))
+	}
+	/**
+	 * @return {cache_init_T<unknown>}
+	 */
 	function to_init() {
 		const cache = cache$.$
 		return keys(cache).reduce((cache_init, id)=>{

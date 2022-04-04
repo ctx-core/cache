@@ -1,5 +1,5 @@
 import type { nullish, Timeout } from '@ctx-core/function'
-import { ReadableAtom$, WritableAtom$ } from '@ctx-core/nanostores'
+import { ReadableAtom$, ReadonlyIfObject, WritableAtom$ } from '@ctx-core/nanostores'
 export declare function cache$_<Val extends unknown = unknown, query_data_T extends unknown = unknown>(
 	query:cache$__query_T<Val, query_data_T>,
 	cache$__opts?:cache$__opts_T<Val, query_data_T>
@@ -39,9 +39,10 @@ export declare type cache_init_T<Val extends unknown = unknown> = Record<string,
 export type cache_ctx_T = cache_T
 export interface cache$_T<Val extends unknown = unknown, query_data_T extends unknown = unknown> extends ReadableAtom$<cache_T<Val>> {
 	be:(query_data:query_data_T, opts?:cache$__be_opts_T<Val, query_data_T>)=>cache_value$_T<Val>;
-	ensure:(query_data:query_data_T, opts?:cache$__be_opts_T<Val, query_data_T>)=>Promise<cache_value$_T<Val>|nullish>;
-	ensure_val:(query_data:query_data_T, opts?:cache$__be_opts_T<Val, query_data_T>)=>Promise<Val|nullish>;
+	ensure:(query_data:query_data_T, opts?:cache$__be_opts_T<Val, query_data_T>)=>Promise<cache_value$_T<Val>>;
+	ensure_val:(query_data:query_data_T, opts?:cache$__be_opts_T<Val, query_data_T>)=>Promise<Val>;
 	set:(id:string, val:Val)=>void
+	subscribe_init(listener:(value:cache_init_T<Val>)=>void):()=>void
 	to_init:()=>cache_init_T<Val>
 }
 export type cache_ctx$_T = cache$_T
