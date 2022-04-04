@@ -42,6 +42,7 @@ export interface cache$_T<Val extends unknown = unknown, query_data_T extends un
 	ensure:(query_data:query_data_T, opts?:cache$__be_opts_T<Val, query_data_T>)=>Promise<cache_value$_T<Val>|nullish>;
 	ensure_val:(query_data:query_data_T, opts?:cache$__be_opts_T<Val, query_data_T>)=>Promise<Val|nullish>;
 	set:(id:string, val:Val)=>void
+	to_init:()=>cache_init_T<Val>
 }
 export type cache_ctx$_T = cache$_T
 export {

@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 17.2.0
+
+### Minor Changes
+
+- cache\$\_: feat: + to_init
+
 ## 17.1.0
 
 ### Minor Changes

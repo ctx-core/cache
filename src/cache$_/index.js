@@ -1,3 +1,4 @@
+import { keys } from '@ctx-core/object'
 import { atom$, split_atom$ } from '@ctx-core/nanostores'
 import { assign, clone } from '@ctx-core/object'
 /** @typedef {import('./index.d.ts').cache$__query_T}cache$__query_T */
@@ -32,7 +33,8 @@ export function cache$_(query, cache$__opts = {}) {
 		be,
 		ensure,
 		ensure_val,
-		set: set_val
+		set: set_val,
+		to_init
 	}))
 	return cache$
 	function set_val(id, val) {
@@ -132,6 +134,13 @@ export function cache$_(query, cache$__opts = {}) {
 				throw err
 			}
 		}
+	}
+	function to_init() {
+		const cache = cache$.$
+		return keys(cache).reduce((cache_init, id)=>{
+			cache_init[id] = cache[id].$
+			return cache_init
+		}, {})
 	}
 }
 export { cache$_ as _cache_ctx, }
