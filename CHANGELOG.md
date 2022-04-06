@@ -1,5 +1,15 @@
 # @ctx-core/cache
 
+## 18.0.0
+
+### Major Changes
+
+- cache\$\_: BREAKING CHANGE
+
+  cache$_,cache$\_T,cache$__opts_T,cache$\_\_be_opts_T,cache_ctx\$\_T: <Key, Val, query_data_T>
+  cache_T,cache_init_T,cache_ctx_T: <Key, Val>
+  cache_T is a Map
+
 ## 17.3.1
 
 ### Patch Changes
