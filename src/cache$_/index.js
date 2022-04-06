@@ -1,8 +1,8 @@
-import { keys } from '@ctx-core/object'
-import { atom$, split_atom$ } from '@ctx-core/nanostores'
+import { atom$, computed$, split_atom$ } from '@ctx-core/nanostores'
 import { assign, clone } from '@ctx-core/object'
 /** @typedef {import('./index.d.ts').cache$__query_T}cache$__query_T */
 /** @typedef {import('./index.d.ts').cache$__opts_T}cache$__opts_T */
+/** @typedef {import('./index.d.ts').cache_T}cache_T */
 /** @typedef {import('./index.d.ts').cache$_T}cache$_T */
 /** @typedef {import('./index.d.ts').cache_init_T}cache_init_T */
 /** @typedef {import('./index.d.ts').cache_val$_T}cache_val$_T */
@@ -16,20 +16,19 @@ import { assign, clone } from '@ctx-core/object'
  * @private
  */
 export function cache$_(query, cache$__opts = {}) {
-	/** @type {split_atom$_ret_T<unknown>} */
-	const cache$$$ = split_atom$({})
+	/** @type {split_atom$_ret_T<cache$_T<unknown, unknown>>} */
+	const cache$$$ = split_atom$(new Map())
 	/** @type {cache$_T<unknown, unknown>} */
 	const cache$ = cache$$$[0]
 	const set = cache$$$[1]
+	const cache_init$ = computed$(cache$, cache=>cache_to_init(cache))
 	if (cache$__opts.init) {
-		const init_r = typeof cache$__opts.init === 'function' ? cache$__opts.init() : cache$__opts.init
-		for (const init_id in init_r) {
-			if (init_r.hasOwnProperty(init_id)) {
-				set_val(init_id, init_r[init_id])
-			}
+		const init_aa = typeof cache$__opts.init === 'function' ? cache$__opts.init() : cache$__opts.init
+		for (const [init_id, init_val] of init_aa) {
+			set_val(init_id, init_val)
 		}
 	}
-	const id_ = cache$__opts.id_ || (query_data=>query_data.toString())
+	const id_ = cache$__opts.id_ || (query_data=>query_data)
 	assign(cache$, ({
 		be,
 		ensure,
@@ -81,10 +80,10 @@ export function cache$_(query, cache$__opts = {}) {
 	 */
 	function base_be(id) {
 		const cache = cache$.$
-		if (!cache[id]) {
-			cache[id] = atom$(null)
+		if (!cache.get(id)) {
+			cache.set(id, atom$(null))
 		}
-		return cache[id]
+		return cache.get(id)
 	}
 	/**
 	 * @param {unknown} query_data
@@ -95,7 +94,7 @@ export function cache$_(query, cache$__opts = {}) {
 		const cache = cache$.$
 		const now = new Date()
 		const id = opts.id ?? id_(query_data)
-		const cache_val$ = cache[id]
+		const cache_val$ = cache.get(id)
 		const { expiration } = cache_val$
 		let cache_val = cache_val$.$
 		if (cache_val == null || (expiration && expiration < now) || opts.force) {
@@ -142,17 +141,25 @@ export function cache$_(query, cache$__opts = {}) {
 	 * @return {() => void}
 	 */
 	function subscribe_init(listener) {
-		return cache$.subscribe(()=>listener(cache$.to_init()))
+		return cache_init$.subscribe(cache_init=>listener(cache_init))
 	}
 	/**
 	 * @return {cache_init_T<unknown>}
 	 */
 	function to_init() {
 		const cache = cache$.$
-		return keys(cache).reduce((cache_init, id)=>{
-			cache_init[id] = cache[id].$
-			return cache_init
-		}, {})
+		return cache_to_init(cache)
+	}
+	/**
+	 * @param {Map<unknown, unknown>}cache
+	 * @return {Map<any, any>}
+	 */
+	function cache_to_init(cache) {
+		const cache_init = new Map()
+		for (const [key, val$] of cache) {
+			cache_init.set(key, val$.$)
+		}
+		return cache_init
 	}
 }
 export { cache$_ as _cache_ctx, }
