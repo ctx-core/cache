@@ -1,5 +1,13 @@
 # @ctx-core/cache
 
+## 18.0.1
+
+### Patch Changes
+
+- svelte: ^3.46.6 -> ^3.47.0
+- Updated dependencies
+  - @ctx-core/nanostores@1.0.9
+
 ## 18.0.0
 
 ### Major Changes
