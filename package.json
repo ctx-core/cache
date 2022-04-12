@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "18.0.2",
+	"version": "18.0.3",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -20,9 +20,7 @@
 	"types": "./src/index.d.ts",
 	"svelte": "./src/index.js",
 	"exports": {
-		".": {
-			"import": "./src/index.js"
-		},
+		".": "./src/index.js",
 		"./package.json": "./package.json"
 	},
 	"scripts": {
@@ -35,10 +33,10 @@
 		"test-unit-coverage": "c8 pnpm test-unit"
 	},
 	"dependencies": {
-		"@ctx-core/error": "^11.4.1",
-		"@ctx-core/function": "^20.6.0",
-		"@ctx-core/nanostores": "^1.0.10",
-		"@ctx-core/object": "^22.1.3",
+		"@ctx-core/error": "workspace:^11.4.2",
+		"@ctx-core/function": "workspace:^20.6.1",
+		"@ctx-core/nanostores": "workspace:^1.0.11",
+		"@ctx-core/object": "workspace:^22.1.4",
 		"svelte": "^3.47.0"
 	},
 	"devDependencies": {
