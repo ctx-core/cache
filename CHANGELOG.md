@@ -1,5 +1,13 @@
 # @ctx-core/cache
 
+## 18.0.6
+
+### Patch Changes
+
+- tslib: ^2.3.1 -> ^2.4.0
+- Updated dependencies
+  - @ctx-core/nanostores@1.0.14
+
 ## 18.0.5
 
 ### Patch Changes

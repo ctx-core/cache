@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "18.0.5",
+	"version": "18.0.6",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -35,14 +35,14 @@
 	"dependencies": {
 		"@ctx-core/error": "^11.4.3",
 		"@ctx-core/function": "^20.7.0",
-		"@ctx-core/nanostores": "^1.0.13",
+		"@ctx-core/nanostores": "^1.0.14",
 		"@ctx-core/object": "^22.1.6",
 		"svelte": "^3.47.0"
 	},
 	"devDependencies": {
 		"c8": "^7.11.2",
-		"check-dts": "^0.6.6",
-		"tslib": "^2.3.1",
+		"check-dts": "^0.6.7",
+		"tslib": "^2.4.0",
 		"tsm": "^2.2.1",
 		"typescript": "next",
 		"uvu": "^0.5.3"
