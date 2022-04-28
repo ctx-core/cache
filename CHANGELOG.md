@@ -1,5 +1,13 @@
 # @ctx-core/cache
 
+## 18.0.9
+
+### Patch Changes
+
+- update dependencies
+- Updated dependencies
+  - @ctx-core/error@11.4.6
+
 ## 18.0.8
 
 ### Patch Changes
