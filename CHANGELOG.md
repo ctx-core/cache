@@ -1,5 +1,22 @@
 # @ctx-core/cache
 
+## 18.1.1
+
+### Patch Changes
+
+- @ctx-core/nanostores: 1.4.0
+
+## 18.1.0
+
+### Minor Changes
+
+- feat: + _atom_ aliases atom,_computed_ aliases computed,readable*fn*,writable*fn*
+
+### Patch Changes
+
+- Updated dependencies
+  - @ctx-core/nanostores@1.4.0
+
 ## 18.0.18
 
 ### Patch Changes

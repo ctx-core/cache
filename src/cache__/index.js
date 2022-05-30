@@ -1,4 +1,4 @@
-import { atom_, computed_, split_atom_ } from '@ctx-core/nanostores'
+import { _atom_, _computed_, atom_, readable_fn_ } from '@ctx-core/nanostores'
 import { assign, clone } from '@ctx-core/object'
 /** @typedef {import('./index.d.ts').cache$__query_T}cache$__query_T */
 /** @typedef {import('./index.d.ts').cache$__opts_T}cache$__opts_T */
@@ -11,25 +11,23 @@ import { assign, clone } from '@ctx-core/object'
 /** @typedef {import('@ctx-core/object').nullish}nullish */
 /**
  * @param {cache$__query_T<unknown, cache$__be_opts_T>} query
- * @param {cache$__opts_T}cache$__opts
- * @returns {cache$_T<unknown, unknown>}
+ * @param {cache$__opts_T}cache___opts
+ * @returns {ReadableAtom_<unknown>}
  * @private
  */
-export function cache$_(query, cache$__opts = {}) {
-	/** @type {split_atom__ret_T<cache$_T<unknown, unknown>>} */
-	const cache$$$ = split_atom_(new Map())
-	/** @type {cache$_T<unknown, unknown>} */
-	const cache$ = cache$$$[0]
-	const set = cache$$$[1]
-	const cache_init$ = computed_(cache$, cache=>cache_to_init(cache))
-	if (cache$__opts.init) {
-		const init_aa = typeof cache$__opts.init === 'function' ? cache$__opts.init() : cache$__opts.init
+export function cache__(query, cache___opts = {}) {
+	const cache_ = _atom_(new Map())
+	const { set } = cache_
+	/** @type {ReadableAtom_<Map<*, *>>} */
+	const cache_init_ = _computed_(cache_, cache=>cache_to_init(cache))
+	if (cache___opts.init) {
+		const init_aa = typeof cache___opts.init === 'function' ? cache___opts.init() : cache___opts.init
 		for (const [init_id, init_val] of init_aa) {
 			set_val(init_id, init_val)
 		}
 	}
-	const id_ = cache$__opts.id_ || (query_data=>query_data)
-	assign(cache$, ({
+	const id_ = cache___opts.id_ || (query_data=>query_data)
+	assign(cache_, ({
 		be,
 		ensure,
 		ensure_val,
@@ -37,11 +35,11 @@ export function cache$_(query, cache$__opts = {}) {
 		subscribe_init,
 		to_init
 	}))
-	return cache$
+	return readable_fn_(cache_)
 	function set_val(id, val) {
-		const cache_val$ = base_be(id)
-		cache_val$.$ = val
-		set(cache$.$)
+		const cache_val_ = base_be(id)
+		cache_val_.set(val)
+		set(cache_.get())
 	}
 	/**
 	 * @param {unknown} query_data
@@ -50,9 +48,9 @@ export function cache$_(query, cache$__opts = {}) {
 	 * @private
 	 */
 	function be(query_data, opts = {}) {
-		const cache_val$ = base_be(opts.id || id_(query_data))
+		const cache_val_ = base_be(opts.id || id_(query_data))
 		load(query_data, opts).then()
-		return cache_val$
+		return cache_val_
 	}
 	/**
 	 * @param {unknown} query_data
@@ -61,9 +59,9 @@ export function cache$_(query, cache$__opts = {}) {
 	 * @private
 	 */
 	async function ensure(query_data, opts = {}) {
-		const cache_val$ = base_be(opts.id || id_(query_data))
+		const cache_val_ = base_be(opts.id || id_(query_data))
 		await load(query_data, opts)
-		return cache_val$
+		return cache_val_
 	}
 	/**
 	 * @param {unknown} query_data
@@ -72,14 +70,14 @@ export function cache$_(query, cache$__opts = {}) {
 	 * @private
 	 */
 	async function ensure_val(query_data, opts = {}) {
-		return (await ensure(query_data, opts)).$
+		return (await ensure(query_data, opts)).get()
 	}
 	/**
 	 * @param {string} id
 	 * @returns {cache_val$_T}
 	 */
 	function base_be(id) {
-		const cache = cache$.$
+		const cache = cache_.get()
 		if (!cache.get(id)) {
 			cache.set(id, atom_(null))
 		}
@@ -91,47 +89,47 @@ export function cache$_(query, cache$__opts = {}) {
 	 * @returns {Promise<void>}
 	 */
 	async function load(query_data, opts = {}) {
-		const cache = cache$.$
+		const cache = cache_.get()
 		const now = new Date()
 		const id = opts.id ?? id_(query_data)
-		const cache_val$ = cache.get(id)
-		const { expiration } = cache_val$
-		let cache_val = cache_val$.$
+		const cache_val_ = cache.get(id)
+		const { expiration } = cache_val_
+		let cache_val = cache_val_.get()
 		if (cache_val == null || (expiration && expiration < now) || opts.force) {
-			if (cache_val$.promise_rc == null) {
-				cache_val$.promise_rc = 0
+			if (cache_val_.promise_rc == null) {
+				cache_val_.promise_rc = 0
 			}
-			if (!cache_val$.promise) {
-				cache_val$.promise = query(query_data)
+			if (!cache_val_.promise) {
+				cache_val_.promise = query(query_data)
 			}
 			try {
-				cache_val$.promise_rc++
-				cache_val = await cache_val$.promise
-				cache_val$.promise_rc--
-				if (!cache_val$.promise_rc) cache_val$.promise = null
+				cache_val_.promise_rc++
+				cache_val = await cache_val_.promise
+				cache_val_.promise_rc--
+				if (!cache_val_.promise_rc) cache_val_.promise = null
 				set_val(id, cache_val)
-				const ttl = opts?.ttl || cache$__opts?.ttl || opts?.period || cache$__opts?.period
-				if (opts?.period || cache$__opts?.period) {
-					console.warn('cache$_|period|deprecated|use ttl instead')
-					cache_val$.period = ttl
+				const ttl = opts?.ttl || cache___opts?.ttl || opts?.period || cache___opts?.period
+				if (opts?.period || cache___opts?.period) {
+					console.warn('cache__|period|deprecated|use ttl instead')
+					cache_val_.period = ttl
 				}
 				if (ttl) {
-					cache_val$.expiration = new Date(new Date().getTime() + ttl)
+					cache_val_.expiration = new Date(new Date().getTime() + ttl)
 				}
-				const poll = opts?.poll != null ? opts.poll : cache$__opts?.poll != null ? cache$__opts?.poll : undefined
+				const poll = opts?.poll != null ? opts.poll : cache___opts?.poll != null ? cache___opts?.poll : undefined
 				if (poll) {
-					cache_val$.poll = setTimeout(()=>{
-						cache_val$.poll = null
+					cache_val_.poll = setTimeout(()=>{
+						cache_val_.poll = null
 						ensure(id, clone(opts, {
 							force: true
 						}))
 					}, ttl)
 				} else {
-					cache_val$.poll = null
+					cache_val_.poll = null
 				}
 			} catch (err) {
 				console.error(err)
-				cache_val$.error = err
+				cache_val_.error = err
 				throw err
 			}
 		}
@@ -141,13 +139,13 @@ export function cache$_(query, cache$__opts = {}) {
 	 * @return {() => void}
 	 */
 	function subscribe_init(listener) {
-		return cache_init$.subscribe(cache_init=>listener(cache_init))
+		return cache_init_.subscribe(cache_init=>listener(cache_init))
 	}
 	/**
 	 * @return {cache_init_T<unknown>}
 	 */
 	function to_init() {
-		const cache = cache$.$
+		const cache = cache_.get()
 		return cache_to_init(cache)
 	}
 	/**
@@ -156,10 +154,13 @@ export function cache$_(query, cache$__opts = {}) {
 	 */
 	function cache_to_init(cache) {
 		const cache_init = new Map()
-		for (const [key, val$] of cache) {
-			cache_init.set(key, val$.$)
+		for (const [key, val_] of cache) {
+			cache_init.set(key, val_.get())
 		}
 		return cache_init
 	}
 }
-export { cache$_ as _cache_ctx, }
+export {
+	cache__ as cache$_,
+	cache__ as _cache_ctx,
+}
