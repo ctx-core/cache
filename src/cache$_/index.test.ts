@@ -1,7 +1,7 @@
 import { test } from 'uvu'
 import { equal } from 'uvu/assert'
 import { cache$_ } from '../index.js'
-test('be|returns atom$ & triggers loads', async ()=>{
+test('be|returns atom_ & triggers loads', async ()=>{
 	const cache$ = cache$_<string, { $ret:string }, { id_prop:string }>(
 		async ({ id_prop }:{ id_prop:string })=>new Promise(res=>{
 			queueMicrotask(()=>res({ $ret: `query-${id_prop}` }))
@@ -19,7 +19,7 @@ test('be|returns atom$ & triggers loads', async ()=>{
 	equal(cache_val$.$, { $ret: 'query-id1' })
 	equal(cache_init_a, [{}, { id1: { $ret: 'query-id1' } }])
 })
-test('ensure|async|returns atom$ & loads', async ()=>{
+test('ensure|async|returns atom_ & loads', async ()=>{
 	const cache$ = cache$_<string, { $ret:string }, { id_prop:string }>(
 		async ({ id_prop }:{ id_prop:string })=>new Promise(res=>{
 			queueMicrotask(()=>res({ $ret: `query-${id_prop}` }))

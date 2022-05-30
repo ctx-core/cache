@@ -1,4 +1,4 @@
-import { atom$, computed$, split_atom$ } from '@ctx-core/nanostores'
+import { atom_, computed_, split_atom_ } from '@ctx-core/nanostores'
 import { assign, clone } from '@ctx-core/object'
 /** @typedef {import('./index.d.ts').cache$__query_T}cache$__query_T */
 /** @typedef {import('./index.d.ts').cache$__opts_T}cache$__opts_T */
@@ -6,8 +6,8 @@ import { assign, clone } from '@ctx-core/object'
 /** @typedef {import('./index.d.ts').cache$_T}cache$_T */
 /** @typedef {import('./index.d.ts').cache_init_T}cache_init_T */
 /** @typedef {import('./index.d.ts').cache_val$_T}cache_val$_T */
-/** @typedef {import('@ctx-core/nanostores').split_atom$_ret_T}split_atom$_ret_T */
-/** @typedef {import('@ctx-core/nanostores').WritableAtom$}WritableAtom$ */
+/** @typedef {import('@ctx-core/nanostores').split_atom__ret_T}split_atom__ret_T */
+/** @typedef {import('@ctx-core/nanostores').WritableAtom_}WritableAtom_ */
 /** @typedef {import('@ctx-core/object').nullish}nullish */
 /**
  * @param {cache$__query_T<unknown, cache$__be_opts_T>} query
@@ -16,12 +16,12 @@ import { assign, clone } from '@ctx-core/object'
  * @private
  */
 export function cache$_(query, cache$__opts = {}) {
-	/** @type {split_atom$_ret_T<cache$_T<unknown, unknown>>} */
-	const cache$$$ = split_atom$(new Map())
+	/** @type {split_atom__ret_T<cache$_T<unknown, unknown>>} */
+	const cache$$$ = split_atom_(new Map())
 	/** @type {cache$_T<unknown, unknown>} */
 	const cache$ = cache$$$[0]
 	const set = cache$$$[1]
-	const cache_init$ = computed$(cache$, cache=>cache_to_init(cache))
+	const cache_init$ = computed_(cache$, cache=>cache_to_init(cache))
 	if (cache$__opts.init) {
 		const init_aa = typeof cache$__opts.init === 'function' ? cache$__opts.init() : cache$__opts.init
 		for (const [init_id, init_val] of init_aa) {
@@ -81,7 +81,7 @@ export function cache$_(query, cache$__opts = {}) {
 	function base_be(id) {
 		const cache = cache$.$
 		if (!cache.get(id)) {
-			cache.set(id, atom$(null))
+			cache.set(id, atom_(null))
 		}
 		return cache.get(id)
 	}
