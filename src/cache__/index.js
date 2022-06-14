@@ -10,7 +10,7 @@ import { assign, clone } from '@ctx-core/object'
 /** @typedef {import('@ctx-core/nanostores').WritableAtom_}WritableAtom_ */
 /** @typedef {import('@ctx-core/object').nullish}nullish */
 /**
- * @param {cache$__query_T<unknown, cache$__be_opts_T>} query
+ * @param {cache$__query_T<unknown, cache___be_opts_T>} query
  * @param {cache$__opts_T}cache___opts
  * @returns {ReadableAtom_<unknown>}
  * @private
@@ -43,7 +43,7 @@ export function cache__(query, cache___opts = {}) {
 	}
 	/**
 	 * @param {unknown} query_data
-	 * @param {cache$__be_opts_T} opts
+	 * @param {cache___be_opts_T} opts
 	 * @returns {cache_val$_T}
 	 * @private
 	 */
@@ -54,7 +54,7 @@ export function cache__(query, cache___opts = {}) {
 	}
 	/**
 	 * @param {unknown} query_data
-	 * @param {cache$__be_opts_T} opts
+	 * @param {cache___be_opts_T} opts
 	 * @returns {Promise<cache_val$_T|nullish>}
 	 * @private
 	 */
@@ -65,7 +65,7 @@ export function cache__(query, cache___opts = {}) {
 	}
 	/**
 	 * @param {unknown} query_data
-	 * @param {cache$__be_opts_T} opts
+	 * @param {cache___be_opts_T} opts
 	 * @returns {Promise<unknown|nullish>}
 	 * @private
 	 */
@@ -79,13 +79,13 @@ export function cache__(query, cache___opts = {}) {
 	function base_be(id) {
 		const cache = cache_.get()
 		if (!cache.get(id)) {
-			cache.set(id, atom_(null))
+			cache.set(id, atom_(undefined))
 		}
 		return cache.get(id)
 	}
 	/**
 	 * @param {unknown} query_data
-	 * @param {cache$__be_opts_T} opts
+	 * @param {cache___be_opts_T} opts
 	 * @returns {Promise<void>}
 	 */
 	async function load(query_data, opts = {}) {
@@ -95,7 +95,7 @@ export function cache__(query, cache___opts = {}) {
 		const cache_val_ = cache.get(id)
 		const { expiration } = cache_val_
 		let cache_val = cache_val_.get()
-		if (cache_val == null || (expiration && expiration < now) || opts.force) {
+		if (cache_val === undefined || (expiration && expiration < now) || opts.force) {
 			if (cache_val_.promise_rc == null) {
 				cache_val_.promise_rc = 0
 			}

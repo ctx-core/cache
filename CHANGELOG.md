@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 19.0.0
+
+### Major Changes
+
+- cache\_\_: query: null return value is cached, undefined return value is retried
+
 ## 18.1.2
 
 ### Patch Changes

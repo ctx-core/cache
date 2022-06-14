@@ -3,7 +3,7 @@ import { equal } from 'uvu/assert'
 import { cache__ } from '../index.js'
 test('be|returns atom_ & triggers loads', async ()=>{
 	const cache_ = cache__<string, { $ret:string }, { id_prop:string }>(
-		async ({ id_prop }:{ id_prop:string })=>new Promise(res=>{
+		({ id_prop }:{ id_prop:string })=>new Promise(res=>{
 			queueMicrotask(()=>res({ $ret: `query-${id_prop}` }))
 		}), {
 			id_: ({ id_prop })=>id_prop,
@@ -11,17 +11,17 @@ test('be|returns atom_ & triggers loads', async ()=>{
 	const cache_init_a:Record<string, { $ret:string }>[] = []
 	cache_.subscribe_init(cache_init=>cache_init_a.push(Object.fromEntries(cache_init.entries())))
 	equal(cache_init_a, [{}])
-	const cache_val$ = cache_.be({ id_prop: 'id1' })
-	equal(cache_val$.$, null)
+	const cache_val_ = cache_.be({ id_prop: 'id1' })
+	equal(cache_val_.$, undefined)
 	equal(cache_init_a, [{}])
 	await new Promise(res=>queueMicrotask(()=>res(null)))
 	await new Promise(res=>queueMicrotask(()=>res(null)))
-	equal(cache_val$.$, { $ret: 'query-id1' })
+	equal(cache_val_.$, { $ret: 'query-id1' })
 	equal(cache_init_a, [{}, { id1: { $ret: 'query-id1' } }])
 })
 test('ensure|async|returns atom_ & loads', async ()=>{
 	const cache_ = cache__<string, { $ret:string }, { id_prop:string }>(
-		async ({ id_prop }:{ id_prop:string })=>new Promise(res=>{
+		({ id_prop }:{ id_prop:string })=>new Promise(res=>{
 			queueMicrotask(()=>res({ $ret: `query-${id_prop}` }))
 		}), {
 			id_: ({ id_prop })=>id_prop,
@@ -29,13 +29,29 @@ test('ensure|async|returns atom_ & loads', async ()=>{
 	const cache_init_a:Record<string, { $ret:string }>[] = []
 	cache_.subscribe_init(cache_init=>cache_init_a.push(Object.fromEntries(cache_init.entries())))
 	equal(cache_init_a, [{}])
-	const cache_val$ = await cache_.ensure({ id_prop: 'id1' })
-	equal(cache_val$.$, { $ret: 'query-id1' })
+	const cache_val_ = await cache_.ensure({ id_prop: 'id1' })
+	equal(cache_val_.$, { $ret: 'query-id1' })
 	equal(cache_init_a, [{}, { id1: { $ret: 'query-id1' } }])
+})
+test('load|through|be,ensure|query returns null|caches the null value', async ()=>{
+	const query_args:any[][] = []
+	const cache_ = cache__<string, null, { id_prop:string }>(
+		({ id_prop })=>new Promise(res=>{
+			query_args.push([{ id_prop }])
+			queueMicrotask(()=>res(null))
+		}), {
+			id_: ({ id_prop })=>id_prop,
+		})
+	const id_prop = 'test'
+	equal(query_args, [])
+	await cache_.ensure({ id_prop })
+	equal(query_args, [[{ id_prop }]])
+	await cache_.ensure({ id_prop })
+	equal(query_args, [[{ id_prop }]])
 })
 test('ensure_val|returns loaded val', async ()=>{
 	const cache_ = cache__<string, { $ret:string }, { id_prop:string }>(
-		async ({ id_prop }:{ id_prop:string })=>new Promise(res=>{
+		({ id_prop }:{ id_prop:string })=>new Promise(res=>{
 			queueMicrotask(()=>res({ $ret: `query-${id_prop}` }))
 		}), {
 			id_: ({ id_prop })=>id_prop,
@@ -47,9 +63,9 @@ test('ensure_val|returns loaded val', async ()=>{
 	equal(cache_val, { $ret: 'query-id1' })
 	equal(cache_init_a, [{}, { id1: { $ret: 'query-id1' } }])
 })
-test('cache$__opts.cache', async ()=>{
+test('cache___opts.cache', async ()=>{
 	const cache_ = cache__<string, { $ret:string }, { id_prop:string }>(
-		async ({ id_prop }:{ id_prop:string })=>new Promise(res=>{
+		({ id_prop }:{ id_prop:string })=>new Promise(res=>{
 			queueMicrotask(()=>res({ $ret: `query-${id_prop}` }))
 		}), {
 			id_: ({ id_prop })=>id_prop,
@@ -59,7 +75,7 @@ test('cache$__opts.cache', async ()=>{
 })
 test('subscribe_init|subscribe with to_init', async ()=>{
 	const cache_ = cache__<string, { $ret:string }, { id_prop:string }>(
-		async ({ id_prop }:{ id_prop:string })=>new Promise(res=>{
+		({ id_prop }:{ id_prop:string })=>new Promise(res=>{
 			queueMicrotask(()=>res({ $ret: `query-${id_prop}` }))
 		}), {
 			id_: ({ id_prop })=>id_prop,
@@ -76,7 +92,7 @@ test('subscribe_init|subscribe with to_init', async ()=>{
 })
 test('to_init', async ()=>{
 	const cache_ = cache__<string, { $ret:string }, { id_prop:string }>(
-		async ({ id_prop }:{ id_prop:string })=>new Promise(res=>{
+		({ id_prop }:{ id_prop:string })=>new Promise(res=>{
 			queueMicrotask(()=>res({ $ret: `query-${id_prop}` }))
 		}), {
 			id_: ({ id_prop })=>id_prop,
