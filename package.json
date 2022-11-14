@@ -36,7 +36,7 @@
 		"@ctx-core/error": "^11.5.1",
 		"@ctx-core/function": "^21.6.0",
 		"@ctx-core/nanostores": "^2.2.2",
-		"@ctx-core/object": "^22.3.0",
+		"@ctx-core/object": "^22.4.0",
 		"svelte": "^3.53.1"
 	},
 	"devDependencies": {
