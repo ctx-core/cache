@@ -1,5 +1,14 @@
 # @ctx-core/cache
 
+## 19.0.25
+
+### Patch Changes
+
+- @ctx-core/object: ^22.8.0 -> ^22.8.2
+- Updated dependencies
+  - @ctx-core/error@11.5.5
+  - @ctx-core/nanostores@2.2.7
+
 ## 19.0.24
 
 ### Patch Changes
