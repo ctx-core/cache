@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 19.0.32
+
+### Patch Changes
+
+- svelte: ^3.55.0 -> ^3.55.1
+
 ## 19.0.31
 
 ### Patch Changes
