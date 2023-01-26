@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 19.0.35
+
+### Patch Changes
+
+- tslib: ^2.4.1 -> ^2.5.0
+
 ## 19.0.34
 
 ### Patch Changes
