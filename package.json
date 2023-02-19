@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "19.0.49",
+	"version": "19.0.50",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -34,9 +34,9 @@
 	},
 	"dependencies": {
 		"@ctx-core/error": "^11.6.2",
-		"@ctx-core/function": "^21.7.1",
-		"@ctx-core/nanostores": "^2.2.25",
-		"@ctx-core/object": "^24.1.6",
+		"@ctx-core/function": "^21.7.2",
+		"@ctx-core/nanostores": "^2.2.26",
+		"@ctx-core/object": "^24.1.7",
 		"svelte": "^3.55.1"
 	},
 	"devDependencies": {
