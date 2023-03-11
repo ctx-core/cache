@@ -3,15 +3,16 @@ import { assign, clone } from '@ctx-core/object'
 /** @typedef {import('@ctx-core/nanostores').split_atom__ret_T}split_atom__ret_T */
 /** @typedef {import('@ctx-core/nanostores').WritableAtom_}WritableAtom_ */
 /** @typedef {import('@ctx-core/object').nullish}nullish */
-/** @typedef {import('./index.d.ts').cache$__query_T}cache$__query_T */
-/** @typedef {import('./index.d.ts').cache$__params_T}cache$__params_T */
+/** @typedef {import('./index.d.ts').cache___be_params_T}cache___be_params_T */
+/** @typedef {import('./index.d.ts').cache___query_T}cache___query_T */
+/** @typedef {import('./index.d.ts').cache___params_T}cache___params_T */
 /** @typedef {import('./index.d.ts').cache_T}cache_T */
-/** @typedef {import('./index.d.ts').cache$_T}cache$_T */
+/** @typedef {import('./index.d.ts').cache__T}cache__T */
 /** @typedef {import('./index.d.ts').cache_init_T}cache_init_T */
-/** @typedef {import('./index.d.ts').cache_val$_T}cache_val$_T */
+/** @typedef {import('./index.d.ts').cache_value__T}cache_value__T */
 /**
- * @param {cache$__query_T<unknown, cache___be_params_T>} query
- * @param {cache$__params_T}[cache___params]
+ * @param {cache___query_T<unknown, cache___be_params_T>} query
+ * @param {cache___params_T}[cache___params]
  * @returns {ReadableAtom_<unknown>}
  * @private
  */
@@ -36,7 +37,10 @@ export function cache__(
 			set_val(init_id, init_val)
 		}
 	}
-	const id_ = cache___params.id_ || (query_data=>query_data)
+	const id_ =
+		cache___params.id_
+		|| (query_data=>query_data)
+	/** @type {cache__T} */
 	assign(cache_, ({
 		be,
 		ensure,
@@ -54,7 +58,7 @@ export function cache__(
 	/**
 	 * @param {unknown}query_data
 	 * @param {cache___be_params_T}[params]
-	 * @returns {cache_val$_T}
+	 * @returns {cache_value__T}
 	 * @private
 	 */
 	function be(query_data, params = {}) {
@@ -65,7 +69,7 @@ export function cache__(
 	/**
 	 * @param {unknown}query_data
 	 * @param {cache___be_params_T}[params]
-	 * @returns {Promise<cache_val$_T|nullish>}
+	 * @returns {Promise<cache_value__T|nullish>}
 	 * @private
 	 */
 	async function ensure(query_data, params = {}) {
@@ -83,8 +87,8 @@ export function cache__(
 		return (await ensure(query_data, params)).get()
 	}
 	/**
-	 * @param {string} id
-	 * @returns {cache_val$_T}
+	 * @param {string}id
+	 * @returns {cache_value__T}
 	 */
 	function base_be(id) {
 		const cache = cache_.get()
@@ -94,8 +98,8 @@ export function cache__(
 		return cache.get(id)
 	}
 	/**
-	 * @param {unknown} query_data
-	 * @param {cache___be_params_T} params
+	 * @param {unknown}query_data
+	 * @param {cache___be_params_T}[params]
 	 * @returns {Promise<void>}
 	 */
 	async function load(query_data, params = {}) {

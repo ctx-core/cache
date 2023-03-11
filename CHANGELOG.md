@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 19.1.1
+
+### Patch Changes
+
+- cache\_\_: fix: jsdocs
+
 ## 19.1.0
 
 ### Minor Changes
