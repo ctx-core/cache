@@ -1,14 +1,14 @@
-import { _atom_, _computed_, atom_, readable_fn_ } from '@ctx-core/nanostores'
+import { atom_, computed_, readable_fn_ } from '@ctx-core/nanostores'
 import { assign, clone } from '@ctx-core/object'
+/** @typedef {import('@ctx-core/nanostores').split_atom__ret_T}split_atom__ret_T */
+/** @typedef {import('@ctx-core/nanostores').WritableAtom_}WritableAtom_ */
+/** @typedef {import('@ctx-core/object').nullish}nullish */
 /** @typedef {import('./index.d.ts').cache$__query_T}cache$__query_T */
 /** @typedef {import('./index.d.ts').cache$__opts_T}cache$__opts_T */
 /** @typedef {import('./index.d.ts').cache_T}cache_T */
 /** @typedef {import('./index.d.ts').cache$_T}cache$_T */
 /** @typedef {import('./index.d.ts').cache_init_T}cache_init_T */
 /** @typedef {import('./index.d.ts').cache_val$_T}cache_val$_T */
-/** @typedef {import('@ctx-core/nanostores').split_atom__ret_T}split_atom__ret_T */
-/** @typedef {import('@ctx-core/nanostores').WritableAtom_}WritableAtom_ */
-/** @typedef {import('@ctx-core/object').nullish}nullish */
 /**
  * @param {cache$__query_T<unknown, cache___be_opts_T>} query
  * @param {cache$__opts_T}cache___opts
@@ -16,10 +16,11 @@ import { assign, clone } from '@ctx-core/object'
  * @private
  */
 export function cache__(query, cache___opts = {}) {
-	const cache_ = _atom_(new Map())
+	const cache_ = atom_(/** @type {any} */new Map())
 	const { set } = cache_
 	/** @type {ReadableAtom_<Map<*, *>>} */
-	const cache_init_ = _computed_(cache_, cache=>cache_to_init(cache))
+	const cache_init_ =
+		computed_(cache_, cache=>cache_to_init(cache))
 	if (cache___opts.init) {
 		const init_aa = typeof cache___opts.init === 'function' ? cache___opts.init() : cache___opts.init
 		for (const [init_id, init_val] of init_aa) {
