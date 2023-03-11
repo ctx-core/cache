@@ -1,5 +1,12 @@
 # @ctx-core/cache
 
+## 19.1.0
+
+### Minor Changes
+
+- - cache**_be_params_T: aliased by cache_**be_opts_T
+- - cache**_params_T: aliased by cache_**opts_T
+
 ## 19.0.76
 
 ### Patch Changes
