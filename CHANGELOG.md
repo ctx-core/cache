@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 19.1.18
+
+### Patch Changes
+
+- @ctx-core/error: ^12.3.1 -> ^12.3.2
+
 ## 19.1.17
 
 ### Patch Changes
