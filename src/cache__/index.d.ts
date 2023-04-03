@@ -33,9 +33,9 @@ export interface cache___be_params_T<
 	poll?:boolean
 	force?:boolean
 }
-export type cache___be_opts_T<Key, Val, query_data_T> = cache___be_params_T<Key, Val, query_data_T>
-export type cache$__be_opts_T<Key, Val, query_data_T> = cache___be_params_T<Key, Val, query_data_T>
-export type cache_ctx$__be_opts_T<Key, Val, query_data_T> = cache___be_params_T<Key, Val, query_data_T>
+export type cache___be_params_T<Key, Val, query_data_T> = cache___be_params_T<Key, Val, query_data_T>
+export type cache$__be_params_T<Key, Val, query_data_T> = cache___be_params_T<Key, Val, query_data_T>
+export type cache_ctx$__be_params_T<Key, Val, query_data_T> = cache___be_params_T<Key, Val, query_data_T>
 export interface cache_value__T<
 	Val extends unknown = unknown
 > extends WritableAtom_<Val|nullish> {
