@@ -1,7 +1,9 @@
 import type { nullish, Timeout } from '@ctx-core/function'
-import { ReadableAtom_, WritableAtom_ } from '@ctx-core/nanostores'
+import type { ReadableAtom_, WritableAtom_ } from '@ctx-core/nanostores'
 export declare function cache__<
-	Key, Val, query_data_T
+	Key,
+	Val,
+	query_data_T
 >(
 	query:cache___query_T<Key, Val, query_data_T>,
 	cache___params?:cache___params_T<Key, Val, query_data_T>
