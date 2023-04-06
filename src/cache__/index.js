@@ -1,6 +1,6 @@
 import { atom_, computed_, readable_fn_ } from '@ctx-core/nanostores'
 import { assign, clone } from '@ctx-core/object'
-/** @typedef {import('@ctx-core/nanostores').split_atom__ret_T}split_atom__ret_T */
+/** @typedef {import('@ctx-core/nanostores').atom_pair_T}atom_pair_T */
 /** @typedef {import('@ctx-core/nanostores').WritableAtom_}WritableAtom_ */
 /** @typedef {import('@ctx-core/object').nullish}nullish */
 /** @typedef {import('./index.d.ts').cache___be_params_T}cache___be_params_T */
