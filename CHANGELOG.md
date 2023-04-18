@@ -1,5 +1,28 @@
 # @ctx-core/cache
 
+## 19.1.49
+
+### Patch Changes
+
+- @ctx-core/monorepo: ^20.3.0 -> ^20.3.1
+- @ctx-core/git-tools: ^7.0.60 -> ^7.0.61
+- @ctx-core/function: ^21.17.15 -> ^21.17.16
+- @ctx-core/dev-tools: 8.1.110 -> 8.1.111
+- @ctx-core/build: 1.0.298 -> 1.0.299
+- @ctx-core/ctx-core-package-tools: ^8.0.190 -> ^8.0.191
+- @ctx-core/queue: ^7.5.17 -> ^7.5.18
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+- Updated dependencies
+  - @ctx-core/error@12.3.24
+  - @ctx-core/function@21.17.17
+  - @ctx-core/nanostores@3.2.20
+  - @ctx-core/object@27.4.21
+
 ## 19.1.48
 
 ### Patch Changes
