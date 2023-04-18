@@ -34,9 +34,9 @@
 	},
 	"dependencies": {
 		"@ctx-core/error": "^12.3.7",
-		"@ctx-core/function": "^21.17.0",
+		"@ctx-core/function": "^21.17.12",
 		"@ctx-core/nanostores": "^3.2.3",
-		"@ctx-core/object": "^27.4.4"
+		"@ctx-core/object": "^27.4.16"
 	},
 	"devDependencies": {
 		"c8": "^7.13.0",
