@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 19.1.59
+
+### Patch Changes
+
+- @ctx-core/nanostores: ^3.4.3 -> ^3.5.0
+
 ## 19.1.58
 
 ### Patch Changes
