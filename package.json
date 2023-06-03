@@ -41,7 +41,7 @@
 	"devDependencies": {
 		"c8": "^7.14.0",
 		"check-dts": "^0.7.2",
-		"tslib": "^2.5.2",
+		"tslib": "^2.5.3",
 		"tsx": "^3.12.7",
 		"typescript": "next",
 		"uvu": "^0.5.6"
