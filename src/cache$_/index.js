@@ -16,17 +16,17 @@ import { assign, clone } from '@ctx-core/object'
  * @returns {ReadableAtom_<unknown>}
  * @private
  */
-export function cache__(
+export function cache$_(
 	query,
 	cache___params = {}
 ) {
-	const cache_ = atom_(/** @type {any} */new Map())
-	const { set } = cache_
+	const cache$ = atom_(/** @type {any} */[new Map()])
+	const { set } = cache$
 	/** @type {ReadableAtom_<Map<*, *>>} */
 	const cache_init_ =
 		computed_(
-			cache_,
-			cache=>
+			cache$,
+			([cache])=>
 				cache_to_init(cache))
 	if (cache___params.init) {
 		const init_aa =
@@ -41,7 +41,7 @@ export function cache__(
 		cache___params.id_
 		|| (query_data=>query_data)
 	/** @type {cache__T} */
-	assign(cache_, ({
+	assign(cache$, ({
 		be,
 		ensure,
 		ensure_val,
@@ -49,11 +49,11 @@ export function cache__(
 		subscribe_init,
 		to_init
 	}))
-	return readable_fn_(cache_)
+	return readable_fn_(cache$)
 	function set_val(id, val) {
-		const cache_val_ = base_be(id)
-		cache_val_.set(val)
-		set(cache_.get())
+		const cache_val$ = base_be(id)
+		cache_val$.set(val)
+		set(cache$.get().slice())
 	}
 	/**
 	 * @param {unknown}query_data
@@ -91,7 +91,7 @@ export function cache__(
 	 * @returns {cache_value__T}
 	 */
 	function base_be(id) {
-		const cache = cache_.get()
+		const [cache] = cache$.get()
 		if (!cache.get(id)) {
 			cache.set(id, atom_(undefined))
 		}
@@ -103,24 +103,24 @@ export function cache__(
 	 * @returns {Promise<void>}
 	 */
 	async function load(query_data, params = {}) {
-		const cache = cache_.get()
+		const [cache] = cache$.get()
 		const now = new Date()
 		const id = params.id ?? id_(query_data)
-		const cache_val_ = cache.get(id)
-		const { expiration } = cache_val_
-		let cache_val = cache_val_.get()
+		const cache_val$ = cache.get(id)
+		const { expiration } = cache_val$
+		let cache_val = cache_val$.get()
 		if (cache_val === undefined || (expiration && expiration < now) || params.force) {
-			if (cache_val_.promise_rc == null) {
-				cache_val_.promise_rc = 0
+			if (cache_val$.promise_rc == null) {
+				cache_val$.promise_rc = 0
 			}
-			if (!cache_val_.promise) {
-				cache_val_.promise = query(query_data)
+			if (!cache_val$.promise) {
+				cache_val$.promise = query(query_data)
 			}
 			try {
-				cache_val_.promise_rc++
-				cache_val = await cache_val_.promise
-				cache_val_.promise_rc--
-				if (!cache_val_.promise_rc) cache_val_.promise = null
+				cache_val$.promise_rc++
+				cache_val = await cache_val$.promise
+				cache_val$.promise_rc--
+				if (!cache_val$.promise_rc) cache_val$.promise = null
 				set_val(id, cache_val)
 				const ttl =
 					params?.ttl
@@ -128,11 +128,11 @@ export function cache__(
 					|| params?.period
 					|| cache___params?.period
 				if (params?.period || cache___params?.period) {
-					console.warn('cache__|period|deprecated|use ttl instead')
-					cache_val_.period = ttl
+					console.warn('cache$_|period|deprecated|use ttl instead')
+					cache_val$.period = ttl
 				}
 				if (ttl) {
-					cache_val_.expiration = new Date(new Date().getTime() + ttl)
+					cache_val$.expiration = new Date(new Date().getTime() + ttl)
 				}
 				const poll =
 					params?.poll != null
@@ -141,18 +141,18 @@ export function cache__(
 						? cache___params?.poll
 						: undefined
 				if (poll) {
-					cache_val_.poll = setTimeout(()=>{
-						cache_val_.poll = null
+					cache_val$.poll = setTimeout(()=>{
+						cache_val$.poll = null
 						ensure(id, clone(params, {
 							force: true
 						}))
 					}, ttl)
 				} else {
-					cache_val_.poll = null
+					cache_val$.poll = null
 				}
 			} catch (err) {
 				console.error(err)
-				cache_val_.error = err
+				cache_val$.error = err
 				throw err
 			}
 		}
@@ -169,7 +169,7 @@ export function cache__(
 	 * @return {cache_init_T<unknown>}
 	 */
 	function to_init() {
-		const cache = cache_.get()
+		const [cache] = cache$.get()
 		return cache_to_init(cache)
 	}
 	/**
@@ -178,13 +178,13 @@ export function cache__(
 	 */
 	function cache_to_init(cache) {
 		const cache_init = new Map()
-		for (const [key, val_] of cache) {
-			cache_init.set(key, val_.get())
+		for (const [key, val$] of cache) {
+			cache_init.set(key, val$.get())
 		}
 		return cache_init
 	}
 }
 export {
-	cache__ as cache$_,
-	cache__ as _cache_ctx,
+	cache$_ as cache__,
+	cache$_ as _cache_ctx,
 }

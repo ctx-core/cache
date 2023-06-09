@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 19.1.77
+
+### Patch Changes
+
+- cache$\_: fix: listeners
+
 ## 19.1.76
 
 ### Patch Changes
