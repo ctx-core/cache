@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 19.1.78
+
+### Patch Changes
+
+- cache$_: return type: cache$\_T
+
 ## 19.1.77
 
 ### Patch Changes

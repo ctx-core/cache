@@ -7,7 +7,7 @@ export declare function cache$_<
 >(
 	query:cache___query_T<Key, Val, query_data_T>,
 	cache___params?:cache___params_T<Key, Val, query_data_T>
-):cache__T<Key, Val, query_data_T>
+):cache$_T<Key, Val, query_data_T>
 export {
 	cache$_ as cache_ctx$_,
 	cache$_ as _cache_ctx,
