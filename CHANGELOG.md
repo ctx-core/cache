@@ -1,5 +1,13 @@
 # @ctx-core/cache
 
+## 19.1.111
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - @ctx-core/nanostores@7.0.0
+
 ## 19.1.110
 
 ### Patch Changes
