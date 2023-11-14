@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "19.2.1",
+	"version": "19.2.2",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -32,10 +32,10 @@
 		"test-unit-coverage": "c8 pnpm test-unit"
 	},
 	"dependencies": {
-		"@ctx-core/error": "^12.4.1",
-		"@ctx-core/function": "^21.21.1",
-		"@ctx-core/nanostores": "^7.1.2",
-		"@ctx-core/object": "^30.1.1"
+		"@ctx-core/error": "^12.4.2",
+		"@ctx-core/function": "^21.21.2",
+		"@ctx-core/nanostores": "^7.1.3",
+		"@ctx-core/object": "^30.1.2"
 	},
 	"devDependencies": {
 		"c8": "^8.0.1",
