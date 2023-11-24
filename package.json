@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "19.2.26",
+	"version": "19.2.27",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -32,16 +32,16 @@
 		"test-unit-coverage": "c8 pnpm test-unit"
 	},
 	"dependencies": {
-		"@ctx-core/error": "^12.4.23",
-		"@ctx-core/function": "^21.22.19",
-		"@ctx-core/nanostores": "^9.0.9",
-		"@ctx-core/object": "^31.1.5"
+		"@ctx-core/error": "^12.4.24",
+		"@ctx-core/function": "^21.22.20",
+		"@ctx-core/nanostores": "^9.0.10",
+		"@ctx-core/object": "^31.1.6"
 	},
 	"devDependencies": {
 		"c8": "^8.0.1",
 		"check-dts": "^0.7.2",
 		"tslib": "^2.6.2",
-		"tsx": "^4.3.0",
+		"tsx": "^4.4.0",
 		"typescript": "next",
 		"uvu": "^0.5.6"
 	},
