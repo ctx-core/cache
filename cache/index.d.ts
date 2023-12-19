@@ -1,5 +1,5 @@
-import type { nullish, Timeout } from '@ctx-core/function'
 import type { ReadableAtom_, WritableAtom_ } from '@ctx-core/nanostores'
+import type { nullish, Timeout } from 'ctx-core/function'
 export declare function cache$_<
 	Key,
 	Val,

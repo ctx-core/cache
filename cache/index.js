@@ -1,15 +1,10 @@
+/// <reference types="ctx-core" />
+/// <reference types="./index.d.ts" />
 import { atom_, computed_, readable_fn_ } from '@ctx-core/nanostores'
-import { assign, clone } from '@ctx-core/object'
+import { assign } from 'ctx-core/object'
 /** @typedef {import('@ctx-core/nanostores').atom_pair_T} */
 /** @typedef {import('@ctx-core/nanostores').WritableAtom_} */
-/** @typedef {import('@ctx-core/object').nullish} */
-/** @typedef {import('./index.d.ts').cache___be_params_T} */
-/** @typedef {import('./index.d.ts').cache___query_T} */
-/** @typedef {import('./index.d.ts').cache___params_T} */
-/** @typedef {import('./index.d.ts').cache_T} */
-/** @typedef {import('./index.d.ts').cache__T} */
-/** @typedef {import('./index.d.ts').cache_init_T} */
-/** @typedef {import('./index.d.ts').cache_value__T} */
+/** @typedef {nullish} */
 /**
  * @param {cache___query_T<unknown, cache___be_params_T>} query
  * @param {cache___params_T}[cache___params]
@@ -31,8 +26,8 @@ export function cache$_(
 	if (cache___params.init) {
 		const init_aa =
 			typeof cache___params.init === 'function'
-			? cache___params.init()
-			: cache___params.init
+				? cache___params.init()
+				: cache___params.init
 		for (const [init_id, init_val] of init_aa) {
 			set_val(init_id, init_val)
 		}
@@ -136,16 +131,14 @@ export function cache$_(
 				}
 				const poll =
 					params?.poll != null
-					? params.poll
-					: cache___params?.poll != null
-						? cache___params?.poll
-						: undefined
+						? params.poll
+						: cache___params?.poll != null
+							? cache___params?.poll
+							: undefined
 				if (poll) {
 					cache_val$.poll = setTimeout(()=>{
 						cache_val$.poll = null
-						ensure(id, clone(params, {
-							force: true
-						}))
+						ensure(id, { ...params, force: true })
 					}, ttl)
 				} else {
 					cache_val$.poll = null
