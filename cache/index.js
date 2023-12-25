@@ -1,10 +1,6 @@
 /// <reference types="ctx-core" />
 /// <reference types="./index.d.ts" />
-import { atom_, computed_, readable_fn_ } from '@ctx-core/nanostores'
-import { assign } from 'ctx-core/object'
-/** @typedef {import('@ctx-core/nanostores').atom_pair_T} */
-/** @typedef {import('@ctx-core/nanostores').WritableAtom_} */
-/** @typedef {nullish} */
+import { memo_, rmemo__subscribe, sig_ } from 'ctx-core/rmemo'
 /**
  * @param {cache___query_T<unknown, cache___be_params_T>} query
  * @param {cache___params_T}[cache___params]
@@ -15,14 +11,13 @@ export function cache$_(
 	query,
 	cache___params = {}
 ) {
-	const cache$ = atom_(/** @type {any} */[new Map()])
-	const { set } = cache$
+	const cache$ = sig_(/** @type {any} */[new Map()])
 	/** @type {ReadableAtom_<Map<*, *>>} */
 	const cache_init_ =
-		computed_(
+		memo_(
 			cache$,
-			([cache])=>
-				cache_to_init(cache))
+			(cache$)=>
+				cache_to_init(cache$()))
 	if (cache___params.init) {
 		const init_aa =
 			typeof cache___params.init === 'function'
@@ -36,19 +31,16 @@ export function cache$_(
 		cache___params.id_
 		|| (query_data=>query_data)
 	/** @type {cache__T} */
-	assign(cache$, ({
-		be,
-		ensure,
-		ensure_val,
-		set: set_val,
-		subscribe_init,
-		to_init
-	}))
-	return readable_fn_(cache$)
+	cache$.be = be
+	cache$.ensure = ensure
+	cache$.ensure_val = ensure_val
+	cache$.subscribe_init = subscribe_init
+	cache$.to_init = to_init
+	return cache$
 	function set_val(id, val) {
 		const cache_val$ = base_be(id)
-		cache_val$.set(val)
-		set(cache$.get().slice())
+		cache_val$._ = val
+		cache$._ = cache$().slice()
 	}
 	/**
 	 * @param {unknown}query_data
@@ -79,16 +71,16 @@ export function cache$_(
 	 * @private
 	 */
 	async function ensure_val(query_data, params = {}) {
-		return (await ensure(query_data, params)).get()
+		return (await ensure(query_data, params))()
 	}
 	/**
 	 * @param {string}id
 	 * @returns {cache_value__T}
 	 */
 	function base_be(id) {
-		const [cache] = cache$.get()
+		const [cache] = cache$()
 		if (!cache.get(id)) {
-			cache.set(id, atom_(undefined))
+			cache.set(id, sig_(undefined))
 		}
 		return cache.get(id)
 	}
@@ -98,12 +90,12 @@ export function cache$_(
 	 * @returns {Promise<void>}
 	 */
 	async function load(query_data, params = {}) {
-		const [cache] = cache$.get()
+		const [cache] = cache$()
 		const now = new Date()
 		const id = params.id ?? id_(query_data)
 		const cache_val$ = cache.get(id)
 		const { expiration } = cache_val$
-		let cache_val = cache_val$.get()
+		let cache_val = cache_val$()
 		if (cache_val === undefined || (expiration && expiration < now) || params.force) {
 			if (cache_val$.promise_rc == null) {
 				cache_val$.promise_rc = 0
@@ -155,14 +147,14 @@ export function cache$_(
 	 * @return {() => void}
 	 */
 	function subscribe_init(listener) {
-		return cache_init_.subscribe(cache_init=>
-			listener(/** @type {Map<*, *>} */cache_init))
+		return rmemo__subscribe(cache_init_, ()=>
+			listener(cache_to_init(cache$()[0])))
 	}
 	/**
 	 * @return {cache_init_T<unknown>}
 	 */
 	function to_init() {
-		const [cache] = cache$.get()
+		const [cache] = cache$()
 		return cache_to_init(cache)
 	}
 	/**
@@ -171,8 +163,8 @@ export function cache$_(
 	 */
 	function cache_to_init(cache) {
 		const cache_init = new Map()
-		for (const [key, val$] of cache) {
-			cache_init.set(key, val$.get())
+		for (const [key, val$] of cache.entries()) {
+			cache_init.set(key, val$())
 		}
 		return cache_init
 	}

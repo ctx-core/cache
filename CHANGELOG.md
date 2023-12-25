@@ -1,5 +1,18 @@
 # @ctx-core/cache
 
+## 20.0.0
+
+### Major Changes
+
+- use rmemo instead of @ctx-core/nanostores
+
+### Patch Changes
+
+- @ctx-core/nanostores: ^10.0.12 -> ^10.0.13
+- Updated dependencies
+- Updated dependencies
+  - ctx-core@5.5.0
+
 ## 19.2.69
 
 ### Patch Changes

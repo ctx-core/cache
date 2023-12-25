@@ -1,5 +1,5 @@
-import type { ReadableAtom_, WritableAtom_ } from '@ctx-core/nanostores'
 import type { nullish, Timeout } from 'ctx-core/function'
+import type { memo_T, sig_T } from 'ctx-core/rmemo'
 export declare function cache$_<
 	Key,
 	Val,
@@ -42,24 +42,24 @@ export interface cache___be_params_T<
 export type cache$__be_params_T<Key, Val, query_data_T> = cache___be_params_T<Key, Val, query_data_T>
 export type cache_ctx$__be_params_T<Key, Val, query_data_T> = cache___be_params_T<Key, Val, query_data_T>
 export interface cache_value__T<
-	Val extends unknown = unknown
-> extends WritableAtom_<Val|nullish> {
+	Val = unknown
+> extends sig_T<Val|nullish> {
 	promise?:Promise<Val>
 	promise_rc?:number
-	error?:any
+	error?:unknown
 	ttl?:number
 	period?:number
 	poll?:number|Timeout|NodeJS.Timeout|nullish
 	expiration?:Date
 }
-export type cache_value$_T<Val extends unknown = unknown> = cache_value__T<Val>
-export type cache_ctx_value$_T<Val extends unknown = unknown> = cache_value__T<Val>
+export type cache_value$_T<Val = unknown> = cache_value__T<Val>
+export type cache_ctx_value$_T<Val = unknown> = cache_value__T<Val>
 export type cache_T<Key, Val> = Map<Key, cache_value__T<Val>>
 export type cache_init_T<Key, Val> = Map<Key, Val>
 export type cache_ctx_T<Key, Val> = cache_T<Key, Val>
 export interface cache$_T<
 	Key, Val, query_data_T
-> extends ReadableAtom_<cache_T<Key, Val>> {
+> extends memo_T<cache_T<Key, Val>> {
 	be(
 		query_data:query_data_T,
 		params?:cache___be_params_T<Key, Val, query_data_T>
