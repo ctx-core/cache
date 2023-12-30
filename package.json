@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "20.0.1",
+	"version": "20.0.2",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -33,7 +33,7 @@
 		"test:unit:coverage": "c8 pnpm test:unit"
 	},
 	"dependencies": {
-		"ctx-core": "^5.6.1"
+		"ctx-core": "^5.7.0"
 	},
 	"devDependencies": {
 		"c8": "^8.0.1",
