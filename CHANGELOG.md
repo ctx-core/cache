@@ -1,5 +1,13 @@
 # @ctx-core/cache
 
+## 20.0.1
+
+### Patch Changes
+
+- ctx-core: ^5.5.0 -> ^5.6.0
+- Updated dependencies
+  - ctx-core@5.6.1
+
 ## 20.0.0
 
 ### Major Changes
