@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 20.0.12
+
+### Patch Changes
+
+- cache$\_: fix: init error
+
 ## 20.0.11
 
 ### Patch Changes

@@ -15,9 +15,9 @@ export function cache$_(
 	/** @type {ReadableAtom_<Map<*, *>>} */
 	const cache_init_ =
 		memo_(
-			cache$,
-			(cache$)=>
-				cache_to_init(cache$()))
+			cache$
+		).add(cache$=>
+			cache_to_init(cache$()[0]))
 	cache_init_()
 	if (cache___params.init) {
 		const init_aa =
@@ -25,7 +25,7 @@ export function cache$_(
 				? cache___params.init()
 				: cache___params.init
 		for (const [init_id, init_val] of init_aa) {
-			set_val(init_id, init_val)
+			val__set(init_id, init_val)
 		}
 	}
 	const id_ =
@@ -38,7 +38,7 @@ export function cache$_(
 	cache$.subscribe_init = subscribe_init
 	cache$.to_init = to_init
 	return cache$
-	function set_val(id, val) {
+	function val__set(id, val) {
 		const cache_val$ = base_be(id)
 		cache_val$._ = val
 		cache$._ = cache$().slice()
@@ -109,7 +109,7 @@ export function cache$_(
 				cache_val = await cache_val$.promise
 				cache_val$.promise_rc--
 				if (!cache_val$.promise_rc) cache_val$.promise = null
-				set_val(id, cache_val)
+				val__set(id, cache_val)
 				const ttl =
 					params?.ttl
 					|| cache___params?.ttl
