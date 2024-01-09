@@ -1,6 +1,6 @@
 /// <reference types="ctx-core" />
 /// <reference types="./index.d.ts" />
-import { memo_, rmemo__subscribe, sig_ } from 'ctx-core/rmemo'
+import { memo_, rmemo__add, sig_ } from 'ctx-core/rmemo'
 /**
  * @param {cache___query_T<unknown, cache___be_params_T>} query
  * @param {cache___params_T}[cache___params]
@@ -18,6 +18,7 @@ export function cache$_(
 			cache$,
 			(cache$)=>
 				cache_to_init(cache$()))
+	cache_init_()
 	if (cache___params.init) {
 		const init_aa =
 			typeof cache___params.init === 'function'
@@ -147,7 +148,7 @@ export function cache$_(
 	 * @return {() => void}
 	 */
 	function subscribe_init(listener) {
-		return rmemo__subscribe(cache_init_, ()=>
+		return rmemo__add(cache_init_, ()=>
 			listener(cache_to_init(cache$()[0])))
 	}
 	/**
