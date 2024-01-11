@@ -17,7 +17,7 @@ export function cache$_(
 		memo_(
 			cache$
 		).add(cache$=>
-			cache_to_init(cache$()[0]))
+			memo_(()=>cache_to_init(cache$()[0])))
 	cache_init_()
 	if (cache___params.init) {
 		const init_aa =
@@ -148,8 +148,10 @@ export function cache$_(
 	 * @return {() => void}
 	 */
 	function subscribe_init(listener) {
-		return rmemo__add(cache_init_, ()=>
-			listener(cache_to_init(cache$()[0])))
+		return rmemo__add(
+			cache_init_,
+			()=>
+				memo_(()=>listener(cache_to_init(cache$()[0]))))
 	}
 	/**
 	 * @return {cache_init_T<unknown>}
