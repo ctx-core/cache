@@ -1,5 +1,11 @@
 # @ctx-core/cache
 
+## 20.0.65
+
+### Patch Changes
+
+- ctx-core: ^5.38.1 -> ^5.38.2
+
 ## 20.0.64
 
 ### Patch Changes
