@@ -1,5 +1,13 @@
 # @ctx-core/cache
 
+## 20.0.69
+
+### Patch Changes
+
+- tsx: ^4.7.0 -> ^4.7.1
+- Updated dependencies
+  - ctx-core@6.1.2
+
 ## 20.0.68
 
 ### Patch Changes
