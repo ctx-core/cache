@@ -15,9 +15,11 @@ export function cache$_(
 	/** @type {ReadableAtom_<Map<*, *>>} */
 	const cache_init_ =
 		memo_(
-			cache$
-		).add(cache$=>
-			memo_(()=>cache_to_init(cache$()[0])))
+			cache$,
+			[
+				cache$=>
+					memo_(()=>cache_to_init(cache$()[0]))
+			])
 	cache_init_()
 	if (cache___params.init) {
 		const init_aa =
