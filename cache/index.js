@@ -7,7 +7,7 @@ import { memo_, rmemo__add, sig_ } from 'ctx-core/rmemo'
  * @returns {ReadableAtom_<unknown>}
  * @private
  */
-export function cache$_(
+export function cache$__new(
 	query,
 	cache___params = {}
 ) {
@@ -42,8 +42,8 @@ export function cache$_(
 	return cache$
 	function val__set(id, val) {
 		const cache_val$ = base_be(id)
-		cache_val$._ = val
-		cache$._ = cache$().slice()
+		cache_val$.set(val)
+		cache$.set(cache$().slice())
 	}
 	/**
 	 * @param {unknown}query_data
@@ -175,6 +175,7 @@ export function cache$_(
 	}
 }
 export {
-	cache$_ as cache__,
-	cache$_ as _cache_ctx,
+	cache$__new as cache$_,
+	cache$__new as cache_ctx$_,
+	cache$__new as _cache_ctx,
 }

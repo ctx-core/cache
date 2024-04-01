@@ -1,6 +1,6 @@
 import type { nullish, Timeout } from 'ctx-core/function'
 import type { memo_T, sig_T } from 'ctx-core/rmemo'
-export declare function cache$_<
+export declare function cache$__new<
 	Key,
 	Val,
 	query_data_T
@@ -9,10 +9,11 @@ export declare function cache$_<
 	cache___params?:cache___params_T<Key, Val, query_data_T>
 ):cache$_T<Key, Val, query_data_T>
 export {
-	cache$_ as cache_ctx$_,
-	cache$_ as _cache_ctx,
+	cache$__new as cache$_,
+	cache$__new as cache_ctx$_,
+	cache$__new as _cache_ctx,
 }
-export type cache$_<Key, Val, query_data_T> = typeof cache$_<Key, Val, query_data_T>
+export type cache$_<Key, Val, query_data_T> = typeof cache$__new<Key, Val, query_data_T>
 export interface cache___params_T<
 	Key, Val, query_data_T
 > {
