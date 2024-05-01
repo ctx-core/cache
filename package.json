@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/cache",
-	"version": "20.0.112",
+	"version": "20.0.113",
 	"description": "ctx-core cache",
 	"keywords": [
 		"ctx-core",
@@ -37,13 +37,13 @@
 		"disable:test:unit:coverage": "c8 pnpm test:unit"
 	},
 	"dependencies": {
-		"ctx-core": "^7.2.2"
+		"ctx-core": "^7.2.3"
 	},
 	"devDependencies": {
 		"c8": "^9.1.0",
 		"check-dts": "^0.7.2",
 		"tslib": "^2.6.2",
-		"tsx": "^4.8.0",
+		"tsx": "^4.8.2",
 		"typescript": "next",
 		"uvu": "^0.5.6"
 	},
