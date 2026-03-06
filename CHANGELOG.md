@@ -1,5 +1,13 @@
 # @ctx-core/cache
 
+## 20.0.144
+
+### Patch Changes
+
+- chore: migrate scripts from pnpm to bun
+- Updated dependencies
+  - ctx-core@7.2.34
+
 ## 20.0.143
 
 ### Patch Changes
